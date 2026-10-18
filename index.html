@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="ur-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f5f4a">
+<meta name="description" content="Mera Deen Safar — roz ke chhote amal se deen ko zindagi mein laayein">
+<title>Mera Deen Safar</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ee;--card:#fff;--ink:#1d2a26;--mute:#7a857f;--line:#ebe7dc;--pri:#0f5f4a;--pri2:#e3f0eb;--gold:#c79a3b;--gold2:#fbf3e1;--ok:#1e8a63;--r:22px;--sh:0 1px 2px rgba(20,40,30,.04),0 6px 24px rgba(20,40,30,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1513;--card:#16201d;--ink:#e8efe9;--mute:#8d9a94;--line:#24302c;--pri:#4cc79b;--pri2:#173129;--gold:#e0b65c;--gold2:#2a2416;--ok:#4cc79b;--sh:none}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;width:100%}
+textarea{min-height:76px;resize:vertical}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;gap:12px;padding:22px 0 8px}
+header .hi{flex:1;min-width:0}
+.hi small{display:block;color:var(--mute);font-size:13px}
+.hi h1{margin:2px 0 0;font-size:22px;font-weight:700;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.av{width:40px;height:40px;border-radius:50%;background:var(--pri2);display:grid;place-items:center;font-size:20px}
+.icon{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--mute)}
+.icon svg,.tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.strip{display:flex;gap:10px;margin:14px 0 22px}
+.pill{flex:1;background:var(--card);border-radius:18px;padding:12px 14px;box-shadow:var(--sh)}
+.pill b{font-size:20px;display:block;line-height:1.2}
+.pill span{font-size:12px;color:var(--mute)}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--gold));border-radius:6px;transition:width .5s}
+.card{background:var(--card);border-radius:var(--r);padding:22px;margin-bottom:18px;box-shadow:var(--sh)}
+.card h2{font-size:13px;font-weight:600;color:var(--mute);margin:0 0 14px;text-transform:uppercase;letter-spacing:.8px;display:flex;justify-content:space-between;align-items:center}
+.card h2 em{font-style:normal;text-transform:none;letter-spacing:0;color:var(--pri);font-weight:600}
+.big{font-size:19px;font-weight:600;margin:0 0 6px;line-height:1.45}
+.mute{color:var(--mute);font-size:13px}
+.ref{color:var(--mute);font-size:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--pri);color:#fff;border-radius:999px;padding:12px 20px;font-weight:600;font-size:15px;transition:transform .1s}
+@media (prefers-color-scheme:dark){.btn{color:#08130f}}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:var(--pri2);color:var(--pri)}
+.btn.done{background:var(--pri2);color:var(--ok)}
+.btn.sm{padding:8px 14px;font-size:14px}
+.btn.full{width:100%}
+.row{display:flex;gap:10px;align-items:center}
+.sp{flex:1}
+.namaz{display:flex;justify-content:space-between;gap:6px}
+.nz{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 0}
+.nz .c{width:50px;height:50px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:20px;transition:all .2s;position:relative}
+.nz.on .c{background:var(--pri);border-color:var(--pri);color:#fff}
+.nz.goal .c:after{content:"";position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--card)}
+.nz b{font-size:13px;font-weight:600}
+.nz span{font-size:11px;color:var(--mute);margin-top:-6px}
+.next{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px;color:var(--mute)}
+.next b{color:var(--ink)}
+.ar{font-family:Amiri,"Scheherazade New","Noto Naskh Arabic","Traditional Arabic",serif;direction:rtl;text-align:right;font-size:26px;line-height:2;margin:4px 0 10px}
+.ar.c{text-align:center}
+.tr{font-style:italic;color:var(--pri);font-size:14px;margin-bottom:6px}
+nav{position:fixed;left:0;right:0;bottom:0;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));z-index:20}
+nav .in{max-width:560px;margin:0 auto;display:flex}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;font-size:11px;color:var(--mute);border-radius:14px}
+.tab.on{color:var(--pri)}
+.tab.on svg{stroke-width:2.3}
+.view{display:none;animation:f .25s}
+.view.on{display:block}
+@keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+.list{display:flex;flex-direction:column}
+.li{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);text-align:left;width:100%}
+.li:last-child{border-bottom:0}
+.li .e{font-size:22px;width:28px;text-align:center}
+.li .t{flex:1;font-weight:500}
+.chev{color:var(--mute)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.tile{background:var(--card);border-radius:var(--r);padding:20px 18px;text-align:left;box-shadow:var(--sh);min-height:128px;display:flex;flex-direction:column;gap:6px}
+.tile .e{font-size:28px}
+.tile b{font-size:16px}
+.tile span{font-size:12px;color:var(--mute)}
+.sheet{position:fixed;inset:0;background:var(--bg);z-index:40;overflow:auto;transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility .3s;padding-bottom:40px}
+.sheet{visibility:hidden}.sheet.on{transform:none;visibility:visible}
+.sheet .top{position:sticky;top:0;background:var(--bg);display:flex;align-items:center;gap:8px;padding:14px 0 10px;z-index:2}
+.sheet .top h3{flex:1;margin:0;font-size:18px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:60;display:none;align-items:flex-end;justify-content:center}
+.modal.on{display:flex}
+.modal .box{background:var(--card);width:100%;max-width:560px;border-radius:26px 26px 0 0;padding:26px 22px calc(26px + env(safe-area-inset-bottom))}
+.chk{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);width:100%;text-align:left}
+.chk:last-child{border-bottom:0}
+.chk .bx{width:26px;height:26px;border-radius:9px;border:2px solid var(--line);display:grid;place-items:center;flex:none;font-size:14px;color:#fff}
+.chk.on .bx{background:var(--pri);border-color:var(--pri)}
+.chk .t{flex:1}
+.chk .t small{display:block;color:var(--mute);font-size:12px}
+.counter{width:180px;height:180px;border-radius:50%;margin:18px auto;display:grid;place-items:center;background:var(--pri2);color:var(--pri);font-size:44px;font-weight:700;position:relative;user-select:none;transition:transform .08s}
+.counter:active{transform:scale(.96)}
+.counter svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.counter small{display:block;font-size:13px;font-weight:500;color:var(--mute);text-align:center}
+.prog{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin:4px 0 18px}
+.prog i{display:block;height:100%;background:var(--pri);transition:width .3s}
+.gold{background:var(--gold2)}
+.gold h2 em{color:var(--gold)}
+.note{font-size:12px;color:var(--mute);text-align:center;margin:26px 0 8px;line-height:1.6}
+.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:all .3s;z-index:80;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.week{display:flex;gap:6px;align-items:flex-end;height:80px;margin:8px 0}
+.week div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:var(--mute);height:100%;justify-content:flex-end}
+.week i{display:block;width:100%;border-radius:8px;background:var(--pri);min-height:4px;opacity:.85}
+.grid7{display:grid;grid-template-columns:56px repeat(7,1fr);gap:6px;align-items:center;font-size:12px;color:var(--mute)}
+.grid7 .d{width:100%;aspect-ratio:1;border-radius:8px;background:var(--line)}
+.grid7 .d.on{background:var(--pri)}
+.member{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.member:last-child{border-bottom:0}
+.ring{width:48px;height:48px;flex:none;position:relative;display:grid;place-items:center;font-size:20px}
+.ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--pri2);color:var(--pri);font-weight:600}
+.seg{display:flex;background:var(--line);border-radius:999px;padding:4px;margin-bottom:18px}
+.seg button{flex:1;padding:8px;border-radius:999px;font-size:14px;color:var(--mute)}
+.seg button.on{background:var(--card);color:var(--ink);font-weight:600;box-shadow:var(--sh)}
+.empty{text-align:center;color:var(--mute);padding:20px 0;font-size:14px}
+.stage{display:flex;gap:6px;margin:12px 0}
+.stage i{flex:1;height:6px;border-radius:6px;background:var(--line)}
+.stage i.on{background:var(--gold)}
+.stage i.cur{background:var(--pri)}
+label.f{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px}
+.pop{animation:pop .4s}
+@keyframes pop{50%{transform:scale(1.15)}}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+<header>
+  <button class="av" data-act="go" data-a="family" id="hAv" aria-label="Profile">🌙</button>
+  <div class="hi"><small id="hDate"></small><h1 id="hName">Assalam-o-Alaikum</h1></div>
+  <button class="icon" data-act="settings" aria-label="Settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+</header>
+
+<section class="view on" id="v-home"></section>
+<section class="view" id="v-ibadat"></section>
+<section class="view" id="v-duas"></section>
+<section class="view" id="v-safar"></section>
+<section class="view" id="v-family"></section>
+</div>
+
+<nav><div class="in">
+ <button class="tab on" data-act="go" data-a="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
+ <button class="tab" data-act="go" data-a="ibadat"><svg viewBox="0 0 24 24"><path d="M12 2c-3 3-5 5-5 8h10c0-3-2-5-5-8zM5 10h14v11H5zM10 21v-5a2 2 0 0 1 4 0v5"/></svg>Ibadat</button>
+ <button class="tab" data-act="go" data-a="duas"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>Duas</button>
+ <button class="tab" data-act="go" data-a="safar"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a7 7 0 0 1 14 0c0 6.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Safar</button>
+ <button class="tab" data-act="go" data-a="family"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.3 5 2.7 5 5.8"/></svg>Ghar</button>
+</div></nav>
+
+<div class="sheet" id="sheet"><div class="wrap"><div class="top"><button class="icon" data-act="close" aria-label="Wapas"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><h3 id="shT"></h3></div><div id="shB"></div></div></div>
+<div class="modal" id="modal"><div class="box" id="mB"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const D={"azkar": [{"k": "kursi", "t": "Ayat-ul-Kursi", "ar": "اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ", "tr": "", "m": "Allah ke siwa koi mabood nahi, wo zinda aur sab ko thaamne wala hai… (Al-Baqarah 2:255). Subah padhne wala shaam tak, shaam ko padhne wala subah tak hifazat mein.", "n": 1, "ref": "Quran 2:255 · Nasai (Amal al-Yawm)"}, {"k": "quls", "t": "Teen Qul", "ar": "بسم الله الرحمن الرحيم قُلْ هُوَ اللَّهُ أَحَدٌ اللَّهُ الصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَّهُ كُفُواً أَحَدٌ. ۞ بسم الله الرحمن الرحيم قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ. ۞ بسم الله الرحمن الرحيم قُلْ أَعُوذُ بِرَبِّ النَّاسِ مَلِكِ النَّاسِ إِلَهِ النَّاسِ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ مِنَ الْجِنَّةِ وَ النَّاسِ", "tr": "Qul huwallahu ahad · Qul a'oozu bi rabbil falaq · Qul a'oozu bi rabbin naas", "m": "Surah Ikhlas, Falaq aur Naas — 3 dafa padhna har cheez ke liye kaafi hai.", "n": 3, "ref": "Abu Dawud 5082, Tirmidhi 3575"}, {"k": "mulk", "t": "Asbahna wa asbahal mulku lillah", "ar": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيرَ مَا بَعْدَهُ ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ", "arE": "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ", "tr": "Asbahna wa asbahal-mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la shareeka lah…", "trE": "Amsayna wa amsal-mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la shareeka lah…", "m": "Hum ne subah ki aur saari badshahi Allah ki hai. Ae Rab! Is din ki bhalai maangta hoon aur iski buraai, susti, burhape ki buraai, aag aur qabr ke azaab se panah maangta hoon.", "n": 1, "ref": "Sahih Muslim 2723"}, {"k": "bika", "t": "Allahumma bika asbahna", "ar": "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ", "arE": "اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ", "tr": "Allahumma bika asbahna, wa bika amsayna, wa bika nahya, wa bika namootu, wa ilaykan-nushoor", "trE": "Allahumma bika amsayna, wa bika asbahna, wa bika nahya, wa bika namootu, wa ilaykal-maseer", "m": "Ae Allah! Tere hi hukm se hum ne subah/shaam ki, tere hi hukm se jeete aur marte hain, aur tere hi taraf lautna hai.", "n": 1, "ref": "Tirmidhi 3391, Abu Dawud 5068"}, {"k": "sayyid", "t": "Sayyid-ul-Istighfar", "ar": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنوبَ إِلاَّ أَنْتَ", "tr": "Allahumma anta rabbi la ilaha illa ant, khalaqtani wa ana 'abduk, wa ana 'ala 'ahdika wa wa'dika mastata't, a'oozu bika min sharri ma sana't, aboo-u laka bi ni'matika 'alayya, wa aboo-u bi dhanbi faghfir li, fa innahu la yaghfirudh-dhunooba illa ant", "m": "Ae Allah! Tu mera Rab hai… main tere ehsaanat ka iqraar aur apne gunah ka eitraaf karta hoon, mujhe maaf kar de, tere siwa koi gunah maaf nahi karta. (Yaqeen se padhne wala us din/raat faut ho to Jannati hai.)", "n": 1, "ref": "Sahih Bukhari 6306"}, {"k": "afini", "t": "Allahumma 'afini fi badani", "ar": "اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ", "tr": "Allahumma 'afini fi badani, Allahumma 'afini fi sam'i, Allahumma 'afini fi basari, la ilaha illa ant. Allahumma inni a'oozu bika minal-kufri wal-faqr, wa a'oozu bika min 'adhabil-qabr, la ilaha illa ant", "m": "Ae Allah! Mere jism, kaan aur aankhon mein aafiyat de. Kufr, ghurbat aur qabr ke azaab se teri panah.", "n": 3, "ref": "Abu Dawud 5090"}, {"k": "hasbi", "t": "Hasbiyallahu", "ar": "حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيهِ تَوَكَّلتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ", "tr": "Hasbiyallahu la ilaha illa huwa, 'alayhi tawakkaltu wa huwa rabbul-'arshil-'azeem", "m": "Mujhe Allah kaafi hai, uske siwa koi mabood nahi, usi par bharosa hai aur wo Arsh-e-Azeem ka Rab hai.", "n": 7, "ref": "Abu Dawud 5081 (mauqoof)"}, {"k": "bism", "t": "Bismillahil-ladhi la yadurru", "ar": "بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلاَ فِي السّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ", "tr": "Bismillahil-ladhi la yadurru ma'asmihi shay'un fil-ardi wa la fis-sama'i wa huwas-sami'ul-'aleem", "m": "Allah ke naam se jiske naam ke saath zameen o aasmaan mein koi cheez nuqsaan nahi de sakti, wo sunne wala jaanne wala hai.", "n": 3, "ref": "Abu Dawud 5088, Tirmidhi 3388"}, {"k": "radi", "t": "Raditu billahi Rabba", "ar": "رَضِيتُ بِاللَّهِ رَبَّاً، وَبِالْإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ ﷺ نَبِيّاً", "tr": "Raditu billahi rabba, wa bil-islami deena, wa bi Muhammadin (ﷺ) nabiyya", "m": "Main Allah ko Rab, Islam ko deen aur Muhammad ﷺ ko Nabi maan kar raazi hoon.", "n": 3, "ref": "Abu Dawud 5072, Tirmidhi 3389"}, {"k": "hayy", "t": "Ya Hayyu ya Qayyum", "ar": "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ", "tr": "Ya Hayyu ya Qayyumu bi rahmatika astagheeth, aslih li sha'ni kullahu wa la takilni ila nafsi tarfata 'ayn", "m": "Ae Zinda, ae Thaamne wale! Teri rehmat se madad maangta hoon, mera har kaam theek kar de aur mujhe palak jhapakne ke barabar bhi mere nafs ke hawale na kar.", "n": 1, "ref": "Nasai (Kubra), Hakim"}, {"k": "kalimat", "t": "A'oozu bi kalimatillah", "ar": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ", "tr": "A'oozu bi kalimatillahit-tammati min sharri ma khalaq", "m": "Allah ke kaamil kalimaat ki panah, har makhlooq ke shar se.", "n": 3, "ref": "Sahih Muslim 2709", "only": "E"}, {"k": "subhan", "t": "SubhanAllahi wa bihamdihi", "ar": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", "tr": "SubhanAllahi wa bihamdihi", "m": "Allah paak hai apni tareef ke saath. 100 dafa padhne wale ke gunah maaf, chahe samundar ki jhaag ke barabar hon.", "n": 100, "ref": "Sahih Muslim 2692, Bukhari 6405"}, {"k": "istighfar", "t": "Astaghfirullaha wa atubu ilayh", "ar": "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", "tr": "Astaghfirullaha wa atubu ilayh", "m": "Main Allah se maafi maangta hoon aur uski taraf rujoo karta hoon. Nabi ﷺ din mein 100 dafa istighfar karte.", "n": 100, "ref": "Bukhari 6307, Muslim 2702"}, {"k": "durood", "t": "Durood", "ar": "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ", "tr": "Allahumma salli wa sallim 'ala nabiyyina Muhammad", "m": "Ae Allah! Hamare Nabi Muhammad ﷺ par rehmat aur salaamti naazil farma.", "n": 10, "ref": "Tabarani (Hasan — Albani)"}], "duas": [{"k": "neend", "t": "Neend se uthna", "e": "🌅", "ar": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", "tr": "Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushoor", "m": "Tamaam tareef us Allah ki jis ne hamein maut (neend) ke baad zinda kiya aur usi ki taraf uth kar jaana hai.", "ref": "Bukhari 6312", "hrs": [4, 10]}, {"k": "sona", "t": "Sone se pehle", "e": "🌙", "ar": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا", "tr": "Bismika Allahumma amootu wa ahya", "m": "Ae Allah! Tere naam se marta (sota) aur jeeta (jaagta) hoon.", "ref": "Bukhari 6324", "hrs": [21, 24, 0, 2]}, {"k": "khana1", "t": "Khane se pehle", "e": "🍽️", "ar": "بِسْمِ اللَّهِ", "tr": "Bismillah", "m": "Allah ke naam se. Bhool jaayein to: بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ (Bismillahi awwalahu wa akhirahu).", "ref": "Abu Dawud 3767, Tirmidhi 1858", "hrs": [7, 9, 12, 15, 19, 21]}, {"k": "khana2", "t": "Khane ke baad", "e": "🤲", "ar": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ", "tr": "Alhamdu lillahil-ladhi at'amani hadha wa razaqanihi min ghayri hawlin minni wa la quwwah", "m": "Tareef us Allah ki jis ne mujhe ye khilaya aur meri kisi taaqat ke baghair ata kiya. (Pichle gunah maaf hote hain.)", "ref": "Abu Dawud 4023, Tirmidhi 3458", "hrs": []}, {"k": "nikalna", "t": "Ghar se nikalna", "e": "🚪", "ar": "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", "tr": "Bismillahi tawakkaltu 'alallah, wa la hawla wa la quwwata illa billah", "m": "Allah ke naam se, Allah par bharosa kiya, aur na koi taaqat hai na quwwat magar Allah se.", "ref": "Abu Dawud 5095, Tirmidhi 3426", "hrs": [7, 9]}, {"k": "dakhil", "t": "Ghar mein dakhil hona", "e": "🏠", "ar": "بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا", "tr": "Bismillahi walajna, wa bismillahi kharajna, wa 'ala Allahi rabbina tawakkalna", "m": "Allah ke naam se hum daakhil hue aur nikle, aur apne Rab Allah par bharosa kiya. Phir ghar walon ko salam karein.", "ref": "Abu Dawud 5096", "hrs": [17, 19]}, {"k": "bath1", "t": "Bathroom jaane se pehle", "e": "🚻", "ar": "بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ", "tr": "Bismillah, Allahumma inni a'oozu bika minal-khubuthi wal-khaba'ith", "m": "Allah ke naam se. Ae Allah! Main napaak jinn mard o aurat (shayateen) se teri panah maangta hoon. (Pehle baayan paaon.)", "ref": "Bukhari 142, Muslim 375; Bismillah: Tirmidhi 606", "hrs": []}, {"k": "bath2", "t": "Bathroom se nikalna", "e": "✨", "ar": "غُفْرَانَكَ", "tr": "Ghufranak", "m": "(Ae Allah) teri bakhshish chahta hoon. (Pehle daayan paaon.)", "ref": "Abu Dawud 30, Tirmidhi 7", "hrs": []}, {"k": "wudu", "t": "Wudu ke baad", "e": "💧", "ar": "أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ", "tr": "Ash-hadu an la ilaha illallahu wahdahu la shareeka lah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh", "m": "Gawahi deta hoon Allah ke siwa koi mabood nahi… aur Muhammad ﷺ uske bande aur Rasool hain. Jannat ke 8 darwaze khul jaate hain. (Wudu se pehle: Bismillah)", "ref": "Sahih Muslim 234", "hrs": []}, {"k": "masjid1", "t": "Masjid mein daakhil", "e": "🕌", "ar": "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ", "tr": "Allahummaf-tah li abwaba rahmatik", "m": "Ae Allah! Mere liye apni rehmat ke darwaze khol de. (Daayan paaon pehle.)", "ref": "Sahih Muslim 713", "hrs": []}, {"k": "masjid2", "t": "Masjid se nikalna", "e": "🕌", "ar": "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ", "tr": "Allahumma inni as'aluka min fadlik", "m": "Ae Allah! Main tujh se tera fazl maangta hoon. (Baayan paaon pehle.)", "ref": "Sahih Muslim 713", "hrs": []}, {"k": "kapray", "t": "Kapray pehenna", "e": "👕", "ar": "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ", "tr": "Alhamdu lillahil-ladhi kasani hadha wa razaqanihi min ghayri hawlin minni wa la quwwah", "m": "Tareef us Allah ki jis ne mujhe ye pehnaya aur meri taaqat ke baghair ata kiya.", "ref": "Abu Dawud 4023", "hrs": [6, 8]}, {"k": "safar", "t": "Sawari / safar", "e": "🚗", "ar": "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ", "tr": "Subhanal-ladhi sakhkhara lana hadha wa ma kunna lahu muqrineen, wa inna ila rabbina lamunqaliboon", "m": "Paak hai wo jis ne ise hamare qaabu mein diya, hum khud ise qaabu na kar sakte the, aur hum apne Rab ki taraf lautne wale hain.", "ref": "Quran 43:13-14 · Muslim 1342", "hrs": [7, 8, 17, 18]}, {"k": "azan", "t": "Azaan ke baad", "e": "📢", "ar": "اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ", "tr": "Allahumma rabba hadhihid-da'watit-tammah, was-salatil-qa'imah, ati Muhammadanil-waseelata wal-fadeelah, wab'ath-hu maqamam mahmoodanil-ladhi wa'adtah", "m": "Ae Allah, is kaamil pukaar aur qaaim hone wali namaz ke Rab! Muhammad ﷺ ko waseela aur fazeelat ata kar aur unhein maqam-e-mahmood par utha jiska tu ne wada kiya. (Shafa'at naseeb hogi.)", "ref": "Sahih Bukhari 614", "hrs": []}, {"k": "cheenk", "t": "Chheenk aaye", "e": "🤧", "ar": "الْحَمْدُ لِلَّهِ", "tr": "Alhamdulillah — sunne wala kahe: Yarhamukallah (يَرْحَمُكَ اللَّهُ), phir chheenkne wala: Yahdeekumullahu wa yuslihu balakum (يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ)", "m": "Tamaam tareef Allah ki · Allah tum par reham kare · Allah tumhein hidayat de aur tumhara haal durust kare.", "ref": "Sahih Bukhari 6224", "hrs": []}, {"k": "gussa", "t": "Gussa aaye", "e": "😤", "ar": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ", "tr": "A'oozu billahi minash-shaytanir-rajeem", "m": "Main mardood shaitan se Allah ki panah maangta hoon. Khade hon to baith jaayein, khamosh ho jaayein.", "ref": "Bukhari 3282, Muslim 2610", "hrs": []}, {"k": "fikr", "t": "Pareshani / gham", "e": "💭", "ar": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْبُخْلِ وَالْجُبْنِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ", "tr": "Allahumma inni a'oozu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala'id-dayni wa ghalabatir-rijal", "m": "Ae Allah! Fikr, gham, aajizi, susti, kanjoosi, buzdili, qarz ke bojh aur logon ke ghalbe se teri panah.", "ref": "Sahih Bukhari 6369", "hrs": []}, {"k": "musibat", "t": "Musibat / nuqsaan", "e": "🖤", "ar": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ", "tr": "Inna lillahi wa inna ilayhi raji'oon", "m": "Hum Allah hi ke hain aur usi ki taraf lautne wale hain.", "ref": "Quran 2:156 · Muslim 918", "hrs": []}, {"k": "yunus", "t": "Mushkil waqt (Dua-e-Yunus)", "e": "🐋", "ar": "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ", "tr": "La ilaha illa anta subhanaka inni kuntu minaz-zalimeen", "m": "Tere siwa koi mabood nahi, tu paak hai, beshak main hi zaalimon mein se tha.", "ref": "Quran 21:87 · Tirmidhi 3505", "hrs": []}, {"k": "majlis", "t": "Majlis khatam hone par", "e": "👥", "ar": "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ", "tr": "Subhanaka Allahumma wa bihamdika, ash-hadu an la ilaha illa ant, astaghfiruka wa atubu ilayk", "m": "Ae Allah tu paak hai apni tareef ke saath, tere siwa koi mabood nahi, tujh se maafi maangta aur tauba karta hoon. (Majlis ki ghaltiyon ka kaffara.)", "ref": "Tirmidhi 3433", "hrs": []}, {"k": "barish", "t": "Barish ho", "e": "🌧️", "ar": "اللَّهُمَّ صَيِّبًا نَافِعًا", "tr": "Allahumma sayyiban nafi'a", "m": "Ae Allah! Ise faida dene wali barish bana.", "ref": "Sahih Bukhari 1032", "hrs": []}, {"k": "iftar", "t": "Roza iftar", "e": "🌇", "ar": "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ", "tr": "Dhahabaz-zama'u wabtallatil-'urooqu wa thabatal-ajru in sha Allah", "m": "Pyaas chali gayi, ragein tar ho gayin aur InshaAllah ajr pakka ho gaya.", "ref": "Abu Dawud 2357", "hrs": []}, {"k": "jazak", "t": "Koi bhalai kare", "e": "🎁", "ar": "جَزَاكَ اللَّهُ خَيْرًا", "tr": "Jazakallahu khayran", "m": "Allah tumhein behtareen badla de. (Ye kehna behtareen shukriya hai.)", "ref": "Tirmidhi 2035", "hrs": []}, {"k": "walidain", "t": "Walidain ke liye", "e": "👪", "ar": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا", "tr": "Rabbir-hamhuma kama rabbayani sagheera", "m": "Ae Rab! Un dono par reham farma jaise unhon ne bachpan mein meri parwarish ki.", "ref": "Quran 17:24", "hrs": []}, {"k": "ilm", "t": "Ilm ke liye", "e": "📖", "ar": "رَبِّ زِدْنِي عِلْمًا", "tr": "Rabbi zidni 'ilma", "m": "Ae mere Rab! Mere ilm mein izafa farma.", "ref": "Quran 20:114", "hrs": []}, {"k": "hasana", "t": "Dunya o Aakhirat ki bhalai", "e": "🌿", "ar": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ", "tr": "Rabbana atina fid-dunya hasanah, wa fil-akhirati hasanah, wa qina 'adhaban-nar", "m": "Ae Rab! Hamein dunya mein bhi bhalai de aur aakhirat mein bhi, aur aag ke azaab se bacha. (Nabi ﷺ ki sab se zyada maangi jaane wali dua.)", "ref": "Quran 2:201 · Bukhari 6389", "hrs": []}, {"k": "dil", "t": "Deen par saabit qadmi", "e": "❤️", "ar": "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ", "tr": "Ya muqallibal-quloob, thabbit qalbi 'ala deenik", "m": "Ae dilon ko pherne wale! Mera dil apne deen par jama de.", "ref": "Tirmidhi 2140", "hrs": []}], "sunnah": [{"t": "Daayein haath se khaana aur peena", "ref": "Muslim 2020"}, {"t": "Khaane se pehle \"Bismillah\" kehna", "ref": "Bukhari 5376"}, {"t": "Salam mein pehal karna — pehle salam karne wala Allah ke zyada qareeb", "ref": "Abu Dawud 5197"}, {"t": "Bhai se muskura kar milna — ye bhi sadqa hai", "ref": "Tirmidhi 1956"}, {"t": "Miswak karna (khaas kar wudu/namaz se pehle)", "ref": "Bukhari 887"}, {"t": "Wudu ke baad 2 rakat Tahiyyat-ul-Wudu", "ref": "Bukhari 1149"}, {"t": "Daayein karwat par sona", "ref": "Bukhari 6311"}, {"t": "Sone se pehle wudu karna", "ref": "Bukhari 6311"}, {"t": "Baith kar paani peena, 3 saans mein", "ref": "Muslim 2026, 2028"}, {"t": "Joota pehle daayan pehenna, utaarte waqt pehle baayan", "ref": "Bukhari 5855"}, {"t": "Chheenk par \"Alhamdulillah\" kehna", "ref": "Bukhari 6224"}, {"t": "Azaan ka jawab dena aur baad ki dua padhna", "ref": "Bukhari 614, Muslim 384"}, {"t": "Fajr se pehle 2 sunnat — dunya o maafeeha se behtar", "ref": "Muslim 725"}, {"t": "Kisi bhai ke liye uski ghair-maujoodgi mein dua", "ref": "Muslim 2733"}, {"t": "Kisi mareez ki iyadat (ya phone par haal poochna)", "ref": "Muslim 2568"}, {"t": "Kisi ko tohfa dena — mohabbat barhti hai", "ref": "Al-Adab al-Mufrad 594"}, {"t": "Raaste se takleef deh cheez hata dena", "ref": "Muslim 1914"}, {"t": "Khaane ke baad plate saaf karna aur ungliyan chaatna", "ref": "Muslim 2033"}, {"t": "Har farz namaz ke baad Ayat-ul-Kursi", "ref": "Nasai (Kubra) 9928"}, {"t": "Sone se pehle teen Qul padh kar haathon par phoonk kar jism par pherna", "ref": "Bukhari 5017"}, {"t": "Sone se pehle Tasbeeh-e-Fatima: 33 SubhanAllah, 33 Alhamdulillah, 34 Allahu Akbar", "ref": "Bukhari 3705"}, {"t": "Gussa aaye to khamosh ho jaana / baith jaana", "ref": "Abu Dawud 4782, Ahmad 2136"}, {"t": "Achi baat kaho ya khamosh raho", "ref": "Bukhari 6018"}, {"t": "Ghar mein daakhil ho kar salam karna", "ref": "Abu Dawud 5096"}, {"t": "Ghar ke kaam mein haath batana", "ref": "Bukhari 676"}, {"t": "Mehmaan ki izzat karna", "ref": "Bukhari 6018"}, {"t": "Khushboo lagana", "ref": "Nasai 3939"}, {"t": "Peer ya Jumeraat ka nafli roza", "ref": "Tirmidhi 747"}, {"t": "Chasht (Duha) ki namaz — 2 rakat", "ref": "Muslim 720"}, {"t": "Majlis ke aakhir mein kaffara-e-majlis ki dua", "ref": "Tirmidhi 3433"}, {"t": "Neend se uth kar dua \"Alhamdulillahil-ladhi ahyana…\"", "ref": "Bukhari 6312"}, {"t": "Khaane mein aib na nikaalna", "ref": "Bukhari 5409"}, {"t": "Masjid mein daayan paaon pehle rakhna", "ref": "Bukhari (tarjuma-tul-baab), Hakim"}, {"t": "Durood kasrat se — ek durood par 10 rehmatein", "ref": "Muslim 408"}], "ayat": [{"r": "2:152", "ar": "فَٱذْكُرُونِىٓ أَذْكُرْكُمْ وَٱشْكُرُوا۟ لِى وَلَا تَكْفُرُونِ", "s": "Al-Baqara", "m": "Tum mujhe yaad karo, main tumhein yaad karunga, aur mera shukr karo.", "a": "Aaj 5 minute sirf zikr karein — SubhanAllah, Alhamdulillah."}, {"r": "2:153", "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ ۚ إِنَّ ٱللَّهَ مَعَ ٱلصَّٰبِرِينَ", "s": "Al-Baqara", "m": "Sabr aur namaz se madad lo, beshak Allah sabr karne walon ke saath hai.", "a": "Aaj kisi pareshani par shikayat ke bajaye 2 rakat padh kar dua karein."}, {"r": "2:186", "ar": "وَإِذَا سَأَلَكَ عِبَادِى عَنِّى فَإِنِّى قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ ٱلدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا۟ لِى وَلْيُؤْمِنُوا۟ بِى لَعَلَّهُمْ يَرْشُدُونَ", "s": "Al-Baqara", "m": "Main qareeb hoon, pukaarne wale ki pukaar sunta hoon.", "a": "Aaj apni zabaan mein Allah se dil khol kar ek dua maangein."}, {"r": "2:286", "ar": "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا ٱكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًۭا كَمَا حَمَلْتَهُۥ عَلَى ٱلَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦ ۖ وَٱعْفُ عَنَّا وَٱغْفِرْ لَنَا وَٱرْحَمْنَآ ۚ أَنتَ مَوْلَىٰنَا فَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ", "s": "Al-Baqara", "m": "Allah kisi par uski taaqat se zyada bojh nahi daalta.", "a": "Aaj apne ek bojh ko Allah ke hawale karein aur ye ayat ki dua padhein."}, {"r": "3:134", "ar": "ٱلَّذِينَ يُنفِقُونَ فِى ٱلسَّرَّآءِ وَٱلضَّرَّآءِ وَٱلْكَٰظِمِينَ ٱلْغَيْظَ وَٱلْعَافِينَ عَنِ ٱلنَّاسِ ۗ وَٱللَّهُ يُحِبُّ ٱلْمُحْسِنِينَ", "s": "Aal-i-Imraan", "m": "Jo gussa pee jaate aur logon ko maaf kar dete hain — Allah mohsinon se mohabbat karta hai.", "a": "Aaj kisi ek shakhs ko dil se maaf kar dein."}, {"r": "3:159", "ar": "فَبِمَا رَحْمَةٍۢ مِّنَ ٱللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ ٱلْقَلْبِ لَٱنفَضُّوا۟ مِنْ حَوْلِكَ ۖ فَٱعْفُ عَنْهُمْ وَٱسْتَغْفِرْ لَهُمْ وَشَاوِرْهُمْ فِى ٱلْأَمْرِ ۖ فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى ٱللَّهِ ۚ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُتَوَكِّلِينَ", "s": "Aal-i-Imraan", "m": "Allah ki rehmat se aap narm-dil hue; sakht hote to log door ho jaate.", "a": "Aaj ghar walon se narmi se baat karein, awaaz oonchi na karein."}, {"r": "4:36", "ar": "۞ وَٱعْبُدُوا۟ ٱللَّهَ وَلَا تُشْرِكُوا۟ بِهِۦ شَيْـًۭٔا ۖ وَبِٱلْوَٰلِدَيْنِ إِحْسَٰنًۭا وَبِذِى ٱلْقُرْبَىٰ وَٱلْيَتَٰمَىٰ وَٱلْمَسَٰكِينِ وَٱلْجَارِ ذِى ٱلْقُرْبَىٰ وَٱلْجَارِ ٱلْجُنُبِ وَٱلصَّاحِبِ بِٱلْجَنۢبِ وَٱبْنِ ٱلسَّبِيلِ وَمَا مَلَكَتْ أَيْمَٰنُكُمْ ۗ إِنَّ ٱللَّهَ لَا يُحِبُّ مَن كَانَ مُخْتَالًۭا فَخُورًا", "s": "An-Nisaa", "m": "Allah ki ibadat karo, walidain, rishtedaaron, yateemon aur padosiyon se bhalai karo.", "a": "Aaj kisi padosi ka haal poochein ya kuch bhejein."}, {"r": "4:86", "ar": "وَإِذَا حُيِّيتُم بِتَحِيَّةٍۢ فَحَيُّوا۟ بِأَحْسَنَ مِنْهَآ أَوْ رُدُّوهَآ ۗ إِنَّ ٱللَّهَ كَانَ عَلَىٰ كُلِّ شَىْءٍ حَسِيبًا", "s": "An-Nisaa", "m": "Jab tumhein salam kiya jaaye to us se behtar jawab do.", "a": "Aaj har salam ka poora jawab dein: Wa alaikumus-salam wa rahmatullahi wa barakatuh."}, {"r": "5:2", "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تُحِلُّوا۟ شَعَٰٓئِرَ ٱللَّهِ وَلَا ٱلشَّهْرَ ٱلْحَرَامَ وَلَا ٱلْهَدْىَ وَلَا ٱلْقَلَٰٓئِدَ وَلَآ ءَآمِّينَ ٱلْبَيْتَ ٱلْحَرَامَ يَبْتَغُونَ فَضْلًۭا مِّن رَّبِّهِمْ وَرِضْوَٰنًۭا ۚ وَإِذَا حَلَلْتُمْ فَٱصْطَادُوا۟ ۚ وَلَا يَجْرِمَنَّكُمْ شَنَـَٔانُ قَوْمٍ أَن صَدُّوكُمْ عَنِ ٱلْمَسْجِدِ ٱلْحَرَامِ أَن تَعْتَدُوا۟ ۘ وَتَعَاوَنُوا۟ عَلَى ٱلْبِرِّ وَٱلتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا۟ عَلَى ٱلْإِثْمِ وَٱلْعُدْوَٰنِ ۚ وَٱتَّقُوا۟ ٱللَّهَ ۖ إِنَّ ٱللَّهَ شَدِيدُ ٱلْعِقَابِ", "s": "Al-Maaida", "m": "Neki aur taqwa mein ek doosre ki madad karo, gunah aur zulm mein nahi.", "a": "Aaj kisi ki ek nek kaam mein madad karein."}, {"r": "7:31", "ar": "۞ يَٰبَنِىٓ ءَادَمَ خُذُوا۟ زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍۢ وَكُلُوا۟ وَٱشْرَبُوا۟ وَلَا تُسْرِفُوٓا۟ ۚ إِنَّهُۥ لَا يُحِبُّ ٱلْمُسْرِفِينَ", "s": "Al-A'raaf", "m": "Khao piyo magar fuzool kharchi na karo.", "a": "Aaj khaana zaaya na karein — plate mein utna lein jitna khana hai."}, {"r": "13:28", "ar": "ٱلَّذِينَ ءَامَنُوا۟ وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ ٱللَّهِ ۗ أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ", "s": "Ar-Ra'd", "m": "Suno! Allah ke zikr se hi dilon ko itminan milta hai.", "a": "Bechaini ho to phone ke bajaye 33 dafa SubhanAllah padhein."}, {"r": "14:7", "ar": "وَإِذْ تَأَذَّنَ رَبُّكُمْ لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِن كَفَرْتُمْ إِنَّ عَذَابِى لَشَدِيدٌۭ", "s": "Ibrahim", "m": "Agar shukr karoge to main tumhein aur zyada dunga.", "a": "Aaj 3 naimatein likhein jin ka shukr ada karna hai."}, {"r": "16:90", "ar": "۞ إِنَّ ٱللَّهَ يَأْمُرُ بِٱلْعَدْلِ وَٱلْإِحْسَٰنِ وَإِيتَآئِ ذِى ٱلْقُرْبَىٰ وَيَنْهَىٰ عَنِ ٱلْفَحْشَآءِ وَٱلْمُنكَرِ وَٱلْبَغْىِ ۚ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ", "s": "An-Nahl", "m": "Allah adl, ehsaan aur rishtedaaron ko dene ka hukm deta hai.", "a": "Aaj kisi rishtedaar ko phone karein ya milein."}, {"r": "17:23", "ar": "۞ وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوٓا۟ إِلَّآ إِيَّاهُ وَبِٱلْوَٰلِدَيْنِ إِحْسَٰنًا ۚ إِمَّا يَبْلُغَنَّ عِندَكَ ٱلْكِبَرَ أَحَدُهُمَآ أَوْ كِلَاهُمَا فَلَا تَقُل لَّهُمَآ أُفٍّۢ وَلَا تَنْهَرْهُمَا وَقُل لَّهُمَا قَوْلًۭا كَرِيمًۭا", "s": "Al-Israa", "m": "Walidain ko \"uff\" tak na kaho, unse izzat se baat karo.", "a": "Aaj walidain se narmi se baat karein aur unke liye dua karein."}, {"r": "17:36", "ar": "وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ ۚ إِنَّ ٱلسَّمْعَ وَٱلْبَصَرَ وَٱلْفُؤَادَ كُلُّ أُو۟لَٰٓئِكَ كَانَ عَنْهُ مَسْـُٔولًۭا", "s": "Al-Israa", "m": "Jis baat ka ilm na ho uske peeche na pado; kaan, aankh, dil sab se sawal hoga.", "a": "Aaj koi baat bina tehqeeq aage forward na karein."}, {"r": "20:114", "ar": "فَتَعَٰلَى ٱللَّهُ ٱلْمَلِكُ ٱلْحَقُّ ۗ وَلَا تَعْجَلْ بِٱلْقُرْءَانِ مِن قَبْلِ أَن يُقْضَىٰٓ إِلَيْكَ وَحْيُهُۥ ۖ وَقُل رَّبِّ زِدْنِى عِلْمًۭا", "s": "Taa-Haa", "m": "Kaho: Ae Rab! Mere ilm mein izafa farma.", "a": "Aaj deen ki ek nayi baat seekhein aur kisi ko batayein."}, {"r": "24:22", "ar": "وَلَا يَأْتَلِ أُو۟لُوا۟ ٱلْفَضْلِ مِنكُمْ وَٱلسَّعَةِ أَن يُؤْتُوٓا۟ أُو۟لِى ٱلْقُرْبَىٰ وَٱلْمَسَٰكِينَ وَٱلْمُهَٰجِرِينَ فِى سَبِيلِ ٱللَّهِ ۖ وَلْيَعْفُوا۟ وَلْيَصْفَحُوٓا۟ ۗ أَلَا تُحِبُّونَ أَن يَغْفِرَ ٱللَّهُ لَكُمْ ۗ وَٱللَّهُ غَفُورٌۭ رَّحِيمٌ", "s": "An-Noor", "m": "Maaf karo aur darguzar karo — kya tum nahi chahte Allah tumhein maaf kare?", "a": "Aaj kisi purani naraazgi ko khatam karne ka pehla qadam uthayein."}, {"r": "24:30", "ar": "قُل لِّلْمُؤْمِنِينَ يَغُضُّوا۟ مِنْ أَبْصَٰرِهِمْ وَيَحْفَظُوا۟ فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ ٱللَّهَ خَبِيرٌۢ بِمَا يَصْنَعُونَ", "s": "An-Noor", "m": "Momin mard apni nigaahein neechi rakhein — ye unke liye paakeezgi hai.", "a": "Aaj nigaah ki hifazat karein, khaas kar phone par."}, {"r": "25:63", "ar": "وَعِبَادُ ٱلرَّحْمَٰنِ ٱلَّذِينَ يَمْشُونَ عَلَى ٱلْأَرْضِ هَوْنًۭا وَإِذَا خَاطَبَهُمُ ٱلْجَٰهِلُونَ قَالُوا۟ سَلَٰمًۭا", "s": "Al-Furqaan", "m": "Rehmaan ke bande zameen par aajizi se chalte hain, jahilon ko salam keh kar guzar jaate hain.", "a": "Aaj kisi behes mein jawab dene ke bajaye \"salam\" keh kar chhod dein."}, {"r": "29:45", "ar": "ٱتْلُ مَآ أُوحِىَ إِلَيْكَ مِنَ ٱلْكِتَٰبِ وَأَقِمِ ٱلصَّلَوٰةَ ۖ إِنَّ ٱلصَّلَوٰةَ تَنْهَىٰ عَنِ ٱلْفَحْشَآءِ وَٱلْمُنكَرِ ۗ وَلَذِكْرُ ٱللَّهِ أَكْبَرُ ۗ وَٱللَّهُ يَعْلَمُ مَا تَصْنَعُونَ", "s": "Al-Ankaboot", "m": "Namaz behayaai aur buraai se rokti hai, aur Allah ka zikr sab se bada hai.", "a": "Aaj har namaz waqt par padhne ki koshish karein."}, {"r": "31:18", "ar": "وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ وَلَا تَمْشِ فِى ٱلْأَرْضِ مَرَحًا ۖ إِنَّ ٱللَّهَ لَا يُحِبُّ كُلَّ مُخْتَالٍۢ فَخُورٍۢ", "s": "Luqman", "m": "Logon se munh pher kar baat na karo aur akad kar na chalo.", "a": "Aaj sab se — chhote bade — muskura kar aur tawajjoh se milein."}, {"r": "33:41", "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱذْكُرُوا۟ ٱللَّهَ ذِكْرًۭا كَثِيرًۭا", "s": "Al-Ahzaab", "m": "Ae imaan walo! Allah ko kasrat se yaad karo.", "a": "Aaj kaam karte hue zabaan par zikr jaari rakhein."}, {"r": "39:53", "ar": "۞ قُلْ يَٰعِبَادِىَ ٱلَّذِينَ أَسْرَفُوا۟ عَلَىٰٓ أَنفُسِهِمْ لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ ۚ إِنَّ ٱللَّهَ يَغْفِرُ ٱلذُّنُوبَ جَمِيعًا ۚ إِنَّهُۥ هُوَ ٱلْغَفُورُ ٱلرَّحِيمُ", "s": "Az-Zumar", "m": "Allah ki rehmat se mayoos na ho, Allah saare gunah maaf kar deta hai.", "a": "Aaj sachchi tauba karein — 100 dafa istighfar."}, {"r": "49:6", "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِن جَآءَكُمْ فَاسِقٌۢ بِنَبَإٍۢ فَتَبَيَّنُوٓا۟ أَن تُصِيبُوا۟ قَوْمًۢا بِجَهَٰلَةٍۢ فَتُصْبِحُوا۟ عَلَىٰ مَا فَعَلْتُمْ نَٰدِمِينَ", "s": "Al-Hujuraat", "m": "Koi khabar laaye to tehqeeq kar lo.", "a": "Aaj WhatsApp par koi khabar bina tasdeeq share na karein."}, {"r": "49:10", "ar": "إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌۭ فَأَصْلِحُوا۟ بَيْنَ أَخَوَيْكُمْ ۚ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ", "s": "Al-Hujuraat", "m": "Momin aapas mein bhai hain, apne bhaiyon mein sulah karwao.", "a": "Aaj do naraaz logon mein sulah ki koshish ya khud sulah karein."}, {"r": "49:11", "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا يَسْخَرْ قَوْمٌۭ مِّن قَوْمٍ عَسَىٰٓ أَن يَكُونُوا۟ خَيْرًۭا مِّنْهُمْ وَلَا نِسَآءٌۭ مِّن نِّسَآءٍ عَسَىٰٓ أَن يَكُنَّ خَيْرًۭا مِّنْهُنَّ ۖ وَلَا تَلْمِزُوٓا۟ أَنفُسَكُمْ وَلَا تَنَابَزُوا۟ بِٱلْأَلْقَٰبِ ۖ بِئْسَ ٱلِٱسْمُ ٱلْفُسُوقُ بَعْدَ ٱلْإِيمَٰنِ ۚ وَمَن لَّمْ يَتُبْ فَأُو۟لَٰٓئِكَ هُمُ ٱلظَّٰلِمُونَ", "s": "Al-Hujuraat", "m": "Koi qaum doosri qaum ka mazaaq na udaaye, na bure naam rakho.", "a": "Aaj kisi ka mazaaq ya bura naam lene se bachein."}, {"r": "49:12", "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱجْتَنِبُوا۟ كَثِيرًۭا مِّنَ ٱلظَّنِّ إِنَّ بَعْضَ ٱلظَّنِّ إِثْمٌۭ ۖ وَلَا تَجَسَّسُوا۟ وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًۭا فَكَرِهْتُمُوهُ ۚ وَٱتَّقُوا۟ ٱللَّهَ ۚ إِنَّ ٱللَّهَ تَوَّابٌۭ رَّحِيمٌۭ", "s": "Al-Hujuraat", "m": "Bad-gumaani se bacho, jasoosi na karo, gheebat na karo.", "a": "Aaj gheebat se poora parhez — majlis mein ho to baat badal dein."}, {"r": "59:18", "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱتَّقُوا۟ ٱللَّهَ وَلْتَنظُرْ نَفْسٌۭ مَّا قَدَّمَتْ لِغَدٍۢ ۖ وَٱتَّقُوا۟ ٱللَّهَ ۚ إِنَّ ٱللَّهَ خَبِيرٌۢ بِمَا تَعْمَلُونَ", "s": "Al-Hashr", "m": "Har jaan dekhe ke us ne kal (aakhirat) ke liye kya aage bheja.", "a": "Aaj raat muhasaba zaroor karein."}, {"r": "65:3", "ar": "وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥٓ ۚ إِنَّ ٱللَّهَ بَٰلِغُ أَمْرِهِۦ ۚ قَدْ جَعَلَ ٱللَّهُ لِكُلِّ شَىْءٍۢ قَدْرًۭا", "s": "At-Talaaq", "m": "Jo Allah par bharosa kare, Allah use kaafi hai.", "a": "Aaj ek fikr par \"Hasbiyallah\" padh kar bharosa karein."}, {"r": "93:11", "ar": "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ", "s": "Ad-Dhuhaa", "m": "Apne Rab ki naimat ka zikr karo.", "a": "Aaj kisi ko batayein Allah ne aap par kya ehsaan kiya."}, {"r": "94:5", "ar": "فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", "s": "Ash-Sharh", "m": "Beshak mushkil ke saath aasaani hai.", "a": "Aaj kisi pareshan dost ko ye ayat suna kar hausla dein."}, {"r": "103:3", "ar": "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ", "s": "Al-Asr", "m": "Siwaye un ke jo imaan laaye, nek amal kiye, haq aur sabr ki talqeen ki.", "a": "Aaj kisi ko pyaar se ek neki ki yaad dihaani karein."}, {"r": "2:43", "ar": "وَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ وَٱرْكَعُوا۟ مَعَ ٱلرَّٰكِعِينَ", "s": "Al-Baqara", "m": "Namaz qaaim karo, zakat do aur rukoo karne walon ke saath rukoo karo.", "a": "Aaj kam az kam ek namaz jamaat ke saath padhein."}, {"r": "33:56", "ar": "إِنَّ ٱللَّهَ وَمَلَٰٓئِكَتَهُۥ يُصَلُّونَ عَلَى ٱلنَّبِىِّ ۚ يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ صَلُّوا۟ عَلَيْهِ وَسَلِّمُوا۟ تَسْلِيمًا", "s": "Al-Ahzaab", "m": "Allah aur uske farishte Nabi ﷺ par durood bhejte hain — tum bhi durood o salam bhejo.", "a": "Aaj 100 dafa durood padhein."}, {"r": "18:10", "ar": "إِذْ أَوَى ٱلْفِتْيَةُ إِلَى ٱلْكَهْفِ فَقَالُوا۟ رَبَّنَآ ءَاتِنَا مِن لَّدُنكَ رَحْمَةًۭ وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًۭا", "s": "Al-Kahf", "m": "Ae Rab! Hamein apne paas se rehmat de aur hamare kaam mein hidayat muhayya kar.", "a": "Aaj kisi faisle se pehle ye dua padhein."}], "neki": ["Kisi bhooke ko khaana khilayein", "Walidain ko phone karein ya unke paas baithein", "Chhota sa sadqa dein — 10 rupay bhi", "Kisi ko pyaas mein paani pilayein", "Ghar walon ke liye chai/khaana banayein", "Kisi bimar ka haal poochein", "Kisi ki tareef karein jo sachchi ho", "Masjid ya mohalle ki safai mein hissa", "Parindon ke liye paani/daana rakhein", "Kisi ka qarz ya bill ada karne mein madad", "Chhote bachon ko ek kahani-e-Nabi sunayein", "Kisi rishtedaar se jo naraaz hai sulah ki koshish", "Kisi ko Quran ki ek ayat sikhayein", "Kisi buzurg ka kaam kar dein", "Apne kapray/cheezein jo istemal nahi, donate karein", "Kisi ke liye dil se dua karein (bina bataye)", "Raaste se kaanta/patthar hatayein", "Kisi ko maaf kar dein", "Ghar mein bachon/biwi/shohar ka shukriya ada karein", "Kisi student ki padhai mein madad", "Kisi naukar/mazdoor ko waqt par aur achi tarah ujrat dein", "Ek ghanta phone se door reh kar family ko waqt dein", "Kisi ko khana bhej dein — padosi pehle", "Kisi ke aib par parda daalein", "Mehmaan ki khidmat", "Kisi pareshan ko hausla dein", "Kisi yateem ki madad ya kafalat ki niyyat", "Jumma ko kisi ko masjid saath le jaayein", "Kisi se maafi maang lein jis ka dil dukhaya", "Ghar mein ek saath namaz ya taleem ka halqa"]};
+const NZ=[['f','Fajr','🌄'],['z','Zuhr','☀️'],['a','Asr','🌤️'],['m','Maghrib','🌇'],['i','Isha','🌙']];
+const KEY='deenSafar.v1', FKEY='deenSafar.fired';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+const dk=(d=new Date())=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const dayNo=(d=new Date())=>Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
+const uid=()=>Math.random().toString(36).slice(2,9);
+const WD=['Itw','Pir','Man','Bud','Jmt','Jum','Haf'];
+const EMO=['🌙','⭐','🌿','🌸','🕊️','🌻','🍃','💎','🌊','🔥'];
+
+// ---------- state ----------
+function fresh(name){return{name:name||'Main',emo:'🌙',days:{},habits:[],prog:null,bonus:0}}
+let S;
+function load(){
+  try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}
+  if(!S||!S.profiles){const id=uid();S={v:1,profiles:{[id]:fresh('')},active:id,remote:{},onb:false,set:{lat:24.8607,lng:67.0011,city:'Karachi',method:'karachi',asr:'hanafi',rem:{on:false,s:'07:00',e:'17:30',nz:false}}}}
+  S.set.rem=S.set.rem||{on:false,s:'07:00',e:'17:30',nz:false};S.remote=S.remote||{};
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('Save nahi hua — storage full?')}}
+const P=()=>S.profiles[S.active];
+function day(k=dk(),p=P()){return p.days[k]||(p.days[k]={n:{}})}
+const peek=(k,p=P())=>p.days[k]||{n:{}};
+
+// ---------- scoring ----------
+function dayPts(d){if(!d)return 0;let p=0;
+  p+=Object.values(d.n||{}).filter(Boolean).length*10;
+  if(d.su)p+=10; if(d.az&&d.az.Sd)p+=15; if(d.az&&d.az.Ed)p+=15;
+  p+=Math.min((d.deeds||[]).length,5)*5; if(d.mu&&(d.mu.a||d.mu.b||d.mu.c))p+=10;
+  p+=Math.min(Math.floor((d.ist||0)/33)*3,30); if(d.amal)p+=10;
+  if(d.jm)p+=Object.entries(d.jm).filter(([k,v])=>k!=='dc'&&v).length*5;
+  return p}
+function points(p=P()){return Object.values(p.days).reduce((a,d)=>a+dayPts(d),0)+(p.bonus||0)}
+const LV=[[0,'Naya Musafir'],[100,'Talib'],[300,'Saabit Qadam'],[600,'Zakir'],[1000,'Shakir'],[1600,'Saabir'],[2400,'Mohsin'],[3400,'Mukhlis'],[4600,'Saalik'],[6000,'Raah-e-Noor']];
+function level(pts){let i=0;while(i<LV.length-1&&pts>=LV[i+1][0])i++;const nx=LV[i+1];return{n:i+1,name:LV[i][1],pct:nx?(pts-LV[i][0])/(nx[0]-LV[i][0])*100:100,next:nx?nx[0]:null}}
+const nzCount=d=>NZ.filter(([k])=>d&&d.n&&d.n[k]).length;
+const active=d=>d&&(nzCount(d)||d.su||(d.az&&(d.az.Sd||d.az.Ed))||(d.deeds||[]).length||d.amal||d.ist||(d.mu&&(d.mu.a||d.mu.b||d.mu.c)));
+function streak(test,p=P()){let n=0,d=new Date();if(!test(p.days[dk(d)]))d=addD(d,-1);while(test(p.days[dk(d)])){n++;d=addD(d,-1)}return n}
+const deenStreak=p=>streak(active,p), nzStreak=p=>streak(d=>nzCount(d)===5,p), suStreak=p=>streak(d=>d&&d.su,p);
+
+// ---------- prayer times (PrayTimes-style astronomical calc) ----------
+const METHODS={karachi:{n:'University of Islamic Sciences, Karachi',f:18,i:18},mwl:{n:'Muslim World League',f:18,i:17},isna:{n:'ISNA (N. America)',f:15,i:15},egypt:{n:'Egyptian Authority',f:19.5,i:17.5},makkah:{n:'Umm al-Qura, Makkah',f:18.5,im:90}};
+const rad=x=>x*Math.PI/180,deg=x=>x*180/Math.PI,fix=(a,b)=>{a=a-b*Math.floor(a/b);return a<0?a+b:a};
+function sunPos(jd){const D=jd-2451545,g=fix(357.529+.98560028*D,360),q=fix(280.459+.98564736*D,360),L=fix(q+1.915*Math.sin(rad(g))+.02*Math.sin(rad(2*g)),360),e=23.439-.00000036*D;
+  const RA=fix(deg(Math.atan2(Math.cos(rad(e))*Math.sin(rad(L)),Math.cos(rad(L))))/15,24);return{dec:deg(Math.asin(Math.sin(rad(e))*Math.sin(rad(L)))),eqt:q/15-RA}}
+function prayerTimes(date=new Date()){
+  const {lat,lng,method,asr}=S.set,m=METHODS[method]||METHODS.karachi;
+  const y=date.getFullYear(),mo=date.getMonth()+1,dd=date.getDate();
+  let Y=y,M=mo;if(M<=2){Y--;M+=12}const A=Math.floor(Y/100),B=2-A+Math.floor(A/4);
+  const jd=Math.floor(365.25*(Y+4716))+Math.floor(30.6001*(M+1))+dd+B-1524.5-lng/(15*24);
+  const tz=-new Date(y,mo-1,dd,12).getTimezoneOffset()/60;
+  const at=t=>sunPos(jd+t/24);
+  const noon=t=>fix(12-at(t).eqt,24);
+  const ang=(a,t,ccw)=>{const s=at(t),T=deg(Math.acos((-Math.sin(rad(a))-Math.sin(rad(s.dec))*Math.sin(rad(lat)))/(Math.cos(rad(s.dec))*Math.cos(rad(lat)))))/15;return noon(t)+(ccw?-T:T)};
+  const asrA=(f,t)=>{const s=at(t);return -deg(Math.atan(1/(f+Math.tan(rad(Math.abs(lat-s.dec))))))};
+  let t={f:5,s:6,z:12,a:13,m:18,i:18};
+  for(let k=0;k<2;k++){t={f:ang(m.f,t.f,1),s:ang(.833,t.s,1),z:noon(t.z),a:ang(asrA(asr==='hanafi'?2:1,t.a),t.a),m:ang(.833,t.m),i:m.im?null:ang(m.i,t.i)}}
+  t.z+=1/60; if(m.im)t.i=t.m+m.im/60;
+  const out={};for(const k in t){const h=t[k]+tz-lng/15;if(isNaN(h)){out[k]=null;continue}const d=new Date(y,mo-1,dd,0,0,0);d.setMinutes(Math.round(h*60));out[k]=d}
+  return out}
+const fmtT=d=>d?d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'—';
+function nextPrayer(){const now=new Date(),t=prayerTimes(now);for(const [k,n] of NZ){if(t[k]&&t[k]>now)return{k,n,t:t[k]}}const t2=prayerTimes(addD(now,1));return{k:'f',n:'Fajr',t:t2.f}}
+const dur=ms=>{const m=Math.max(0,Math.round(ms/6e4));return m>=60?Math.floor(m/60)+'h '+(m%60)+'m':m+'m'};
+
+// ---------- Benamazi se Namazi program ----------
+const STAGES=[
+ {t:'Pehla qadam',g:['m'],d:7,tip:'Sirf Maghrib ko pakka karein — ye sab se chhoti aur aasaan waqt wali hai.'},
+ {t:'Doosra qadam',g:['m','i'],d:7,tip:'Maghrib ke saath Isha jor dein. Sone se pehle padh lein.'},
+ {t:'Teesra qadam',g:['f','m','i'],d:7,tip:'Ab Fajr. Alarm lagayein, jaldi sone ki koshish karein.'},
+ {t:'Chautha qadam',g:['f','a','m','i'],d:7,tip:'Asr jor dein — kaam ke beech 10 minute nikaalein.'},
+ {t:'Paanchon namazein',g:['f','z','a','m','i'],d:7,tip:'MashaAllah! Ab Zuhr bhi — paanchon mukammal.'},
+ {t:'Pakki aadat (40 din)',g:['f','z','a','m','i'],d:40,tip:'40 din paanchon namazein — aadat pakki ho jaati hai.'},
+ {t:'Sunnat aur jamaat',g:['f','z','a','m','i'],d:30,sm:1,tip:'Farz ke saath sunnat-e-muakkadah aur jahan mumkin ho jamaat.'}];
+function progState(p=P()){const g=p.prog;if(!g)return null;const st=STAGES[g.s];if(!st)return{done:true};
+  const ok=d=>d&&st.g.every(k=>d.n&&d.n[k])&&(!st.sm||d.sm);let n=0,d=new Date();const start=new Date(g.since);start.setHours(0,0,0,0);
+  if(!ok(p.days[dk(d)]))d=addD(d,-1);while(d>=start&&ok(p.days[dk(d)])){n++;d=addD(d,-1)}
+  return{st,n,todayOk:ok(p.days[dk()])}}
+function progCheck(){const p=P();const ps=progState(p);if(!ps||ps.done)return;if(ps.n>=ps.st.d){p.bonus=(p.bonus||0)+50;p.prog.s++;p.prog.since=Date.now();save();
+  const nx=STAGES[p.prog.s];modal(`<div style="text-align:center"><div style="font-size:54px">🎉</div><p class="big">MashaAllah! "${esc(ps.st.t)}" mukammal</p><p class="mute">${nx?'Agla qadam: <b>'+esc(nx.t)+'</b><br>'+esc(nx.tip):'Aap ne poora program mukammal kar liya. Allah istiqamat de!'}</p><p class="mute">+50 points</p><button class="btn full" data-act="mclose">Alhamdulillah</button></div>`)}}
+
+// ---------- UI helpers ----------
+let tmo;function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(tmo);tmo=setTimeout(()=>el.classList.remove('on'),2200)}
+function modal(h){$('#mB').innerHTML=h;$('#modal').classList.add('on')}
+function mclose(){$('#modal').classList.remove('on')}
+let sheetFn=null;
+function sheet(t,fn){sheetFn=fn;$('#shT').textContent=t;$('#shB').innerHTML=fn();$('#sheet').classList.add('on');$('#sheet').scrollTop=0}
+function resheet(){if(sheetFn&&$('#sheet').classList.contains('on')){const y=$('#sheet').scrollTop;$('#shB').innerHTML=sheetFn();$('#sheet').scrollTop=y}}
+function closeSheet(){$('#sheet').classList.remove('on');sheetFn=null;runner=null;setTimeout(()=>{if(!sheetFn)$('#shB').innerHTML=''},320);render()}
+const ring=(pct,size=48,c='var(--pri)')=>{const r=size/2-3,C=2*Math.PI*r;return`<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--line)" stroke-width="4"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-Math.min(1,pct))}"/></svg>`};
+const isFri=()=>new Date().getDay()===5;
+const NOTE='<p class="note">Duas aur ayat mashhoor sahih kutub se li gayi hain.<br>Phir bhi <b>kisi alim se tasdeeq karein</b>. 🤲</p>';
+
+// ---------- HOME ----------
+function azMode(){const now=new Date(),t=prayerTimes(now),d=day();if(t.z&&now<t.z)return'S';if(t.a&&now>=t.a)return'E';return d.az&&d.az.Sd?'E':'S'}
+function azList(m){return D.azkar.filter(z=>!(z.only&&z.only!==m))}
+function azProg(m,d=day()){const L=azList(m),a=(d.az&&d.az[m])||{};let done=0;L.forEach(z=>{if((a[z.k]||0)>=z.n)done++});return{done,total:L.length}}
+function renderHome(){
+  const p=P(),d=day(),pts=points(),lv=level(pts),t=prayerTimes(),nx=nextPrayer(),ps=progState();
+  const su=D.sunnah[dayNo()%D.sunnah.length],m=azMode(),ap=azProg(m),azDone=d.az&&d.az[m+'d'];
+  let h=`<div class="strip">
+   <div class="pill"><b>🔥 ${deenStreak()}</b><span>din ka safar</span></div>
+   <div class="pill"><b>${nzStreak()} <small style="font-size:13px;font-weight:500">din</small></b><span>namaz streak</span></div>
+   <div class="pill" data-act="go" data-a="safar"><b style="font-size:15px">Lv ${lv.n}</b><span>${esc(lv.name)}</span><div class="bar"><i style="width:${lv.pct}%"></i></div></div></div>`;
+  h+=`<div class="card"><h2>Aaj ki namaz <em>${nzCount(d)}/5</em></h2><div class="namaz">`+
+   NZ.map(([k,n,e])=>`<button class="nz ${d.n[k]?'on':''} ${ps&&ps.st&&ps.st.g.includes(k)&&!d.n[k]?'goal':''}" data-act="nz" data-a="${k}" aria-label="${n}"><div class="c">${d.n[k]?'✓':e}</div><b>${n}</b><span>${fmtT(t[k])}</span></button>`).join('')+
+   `</div><div class="next"><span>Agli: <b>${nx.n}</b> · ${fmtT(nx.t)}</span><span>${dur(nx.t-new Date())} baaqi</span></div>`+
+   (ps&&ps.st?`<div class="next" style="border:0;padding-top:4px;margin-top:4px"><span>🎯 ${esc(ps.st.t)}</span><span>${ps.n}/${ps.st.d} din</span></div>`:'')+`</div>`;
+  h+=`<div class="card"><h2>Aaj ki sunnat <em>${suStreak()?'🔥 '+suStreak():''}</em></h2><p class="big">${esc(su.t)}</p><p class="ref">${esc(su.ref)}</p><div style="margin-top:16px">`+
+   (d.su?`<button class="btn done" data-act="su">✓ Alhamdulillah, ho gaya</button>`:`<button class="btn" data-act="su">Ho gaya ✓</button>`)+`</div></div>`;
+  h+=`<div class="card"><h2>${m==='S'?'Subah':'Shaam'} ke azkaar <em>${ap.done}/${ap.total}</em></h2>
+   <div class="row"><div class="sp"><p class="big" style="margin:0">${azDone?'MashaAllah, mukammal 🌿':m==='S'?'Din ki shuruat Allah ke zikr se':'Shaam ka hisaar — 10 minute'}</p><p class="mute" style="margin:4px 0 0">${m==='S'?'Fajr se Zuhr tak':'Asr se raat tak'}</p></div>
+   <div class="ring" style="width:56px;height:56px">${ring(ap.done/ap.total,56)}<span style="font-size:14px">${Math.round(ap.done/ap.total*100)}%</span></div></div>
+   <div style="margin-top:16px"><button class="btn ${azDone?'ghost':''}" data-act="az" data-a="${m}">${azDone?'Dobara padhein':ap.done?'Jaari rakhein':'Shuru karein'}</button></div></div>`;
+  if(isFri())h+=jummaCard(true);
+  h+=NOTE;$('#v-home').innerHTML=h}
+
+// ---------- JUMMA ----------
+const JM=[['ghusl','Ghusl karna','Bukhari 877'],['kapre','Saaf kapray aur khushboo','Bukhari 883'],['kahf','Surah Kahf padhna','Hakim, Bayhaqi — do Jummon ke darmiyan noor'],['durood','Kasrat se durood','Abu Dawud 1047'],['jaldi','Jaldi masjid, khutba ghaur se','Bukhari 881, 934'],['dua','Asr–Maghrib ke darmiyan dua','Abu Dawud 1048']];
+function jummaCard(home){const d=day(),j=d.jm||{},n=JM.filter(([k])=>j[k]).length;
+  return`<div class="card gold"><h2>Jumma Mubarak 🕌 <em>${n}/${JM.length}</em></h2>${home?'':(isFri()?'':'<p class="mute" style="margin-top:-6px">Ye checklist Jumma ke din Home par aayegi.</p>')}<div>`+
+  JM.map(([k,t,r])=>`<button class="chk ${j[k]?'on':''}" data-act="jm" data-a="${k}" ${!isFri()?'disabled style="opacity:.55"':''}><span class="bx">${j[k]?'✓':''}</span><span class="t">${t}<small>${r}</small></span>${k==='durood'?`<span class="tag" data-act="dc">${j.dc||0} +</span>`:''}</button>`).join('')+`</div></div>`}
+
+// ---------- IBADAT ----------
+function renderIbadat(){const p=P(),t=prayerTimes(),ps=progState();let h='';
+  // program
+  if(!p.prog){h+=`<div class="card"><h2>Benamazi se Namazi</h2><p class="big">Qadam ba qadam namaz ki aadat</p><p class="mute">7 marhalay — ek namaz se shuru kar ke paanchon tak, phir 40 din ki pakki aadat.</p><div style="margin-top:14px"><button class="btn" data-act="prog">Program shuru karein</button></div></div>`}
+  else if(ps.done){h+=`<div class="card gold"><h2>Benamazi se Namazi <em>Mukammal 🏆</em></h2><p class="big">Aap ne saare marhalay mukammal kar liye!</p><p class="mute">Allah istiqamat de. Ab bas aadat jaari rakhein.</p><button class="btn ghost sm" data-act="progreset">Program dobara</button></div>`}
+  else{const g=p.prog;h+=`<div class="card"><h2>Benamazi se Namazi <em>Marhala ${g.s+1}/7</em></h2><div class="stage">${STAGES.map((s,i)=>`<i class="${i<g.s?'on':i===g.s?'cur':''}"></i>`).join('')}</div>
+   <p class="big">${esc(ps.st.t)}: ${ps.st.g.map(k=>NZ.find(x=>x[0]===k)[1]).join(' + ')}${ps.st.sm?' + sunnatein':''}</p><p class="mute">${esc(ps.st.tip)}</p>
+   <div class="bar" style="height:8px;margin:14px 0 6px"><i style="width:${ps.n/ps.st.d*100}%"></i></div><p class="mute" style="margin:0">${ps.n} / ${ps.st.d} din lagataar ${ps.n===0?'· Koi baat nahi, aaj se phir shuru — Allah koshish dekhta hai 💚':''}</p>
+   ${ps.st.sm?`<button class="chk ${day().sm?'on':''}" data-act="sm"><span class="bx">${day().sm?'✓':''}</span><span class="t">Aaj sunnat-e-muakkadah bhi padhi</span></button>`:''}
+   <p class="ref" style="margin-top:12px">⚠️ Paanchon namazein farz hain. Ye sirf aadat daalne ki tarteeb hai — jo namaz reh jaaye uski qaza karein aur baaqi bhi padhne ki koshish jaari rakhein.</p>
+   <button class="btn ghost sm" data-act="progoff" style="margin-top:6px">Program band karein</button></div>`}
+  // 7-day grid
+  const days=[...Array(7)].map((_,i)=>addD(new Date(),i-6));
+  h+=`<div class="card"><h2>Pichle 7 din <em>🔥 ${nzStreak()} din</em></h2><div class="grid7"><span></span>${days.map(d=>`<span style="text-align:center;font-size:11px">${WD[d.getDay()]}</span>`).join('')}`+
+   NZ.map(([k,n])=>`<span>${n}</span>`+days.map(d=>`<span class="d ${peek(dk(d)).n[k]?'on':''}"></span>`).join('')).join('')+`</div></div>`;
+  // azkaar
+  const aS=azProg('S'),aE=azProg('E');
+  h+=`<div class="card"><h2>Azkaar</h2><div class="list">
+   <button class="li" data-act="az" data-a="S"><span class="e">🌅</span><span class="t">Subah ke azkaar<br><span class="mute">${aS.done}/${aS.total} mukammal</span></span><span class="chev">›</span></button>
+   <button class="li" data-act="az" data-a="E"><span class="e">🌆</span><span class="t">Shaam ke azkaar<br><span class="mute">${aE.done}/${aE.total} mukammal</span></span><span class="chev">›</span></button></div></div>`;
+  h+=jummaCard(false);
+  // times
+  h+=`<div class="card"><h2>Auqaat-e-Namaz <em>${esc(S.set.city||'')}</em></h2><div class="list">`+
+   [['f','Fajr'],['s','Tulu-e-Aftab'],['z','Zuhr'],['a','Asr'],['m','Maghrib'],['i','Isha']].map(([k,n])=>`<div class="li" style="padding:10px 0"><span class="t">${n}</span><b>${fmtT(t[k])}</b></div>`).join('')+
+   `</div><p class="ref">${esc(METHODS[S.set.method].n)} · Asr ${S.set.asr==='hanafi'?'Hanafi':'Shafi/Jamhoor'}. Apni masjid ke auqaat ko tarjeeh dein.</p><button class="btn ghost sm" data-act="settings">Location / tareeqa badlein</button></div>`;
+  h+=NOTE;$('#v-ibadat').innerHTML=h}
+
+// ---------- AZKAAR RUNNER ----------
+let runner=null;
+function openAz(m){runner={m,i:0};const L=azList(m),a=(day().az||{})[m]||{};const f=L.findIndex(z=>(a[z.k]||0)<z.n);runner.i=f<0?0:f;sheet(m==='S'?'Subah ke azkaar':'Shaam ke azkaar',azView)}
+function azView(){const {m,i}=runner,L=azList(m),z=L[i],d=day();d.az=d.az||{};const a=d.az[m]=d.az[m]||{};const c=a[z.k]||0,pr=azProg(m);
+  if(runner.fin)return`<div style="text-align:center;padding:40px 0"><div style="font-size:64px">🌿</div><p class="big">MashaAllah! ${m==='S'?'Subah':'Shaam'} ke azkaar mukammal</p><p class="mute">Allah qabool farmaye. +15 points</p><button class="btn" data-act="close" style="margin-top:12px">Wapas</button></div>`;
+  return`<div class="prog"><i style="width:${pr.done/pr.total*100}%"></i></div><p class="mute" style="margin:0 0 6px">${i+1} / ${L.length} · ${esc(z.t)}</p>
+  <div class="card"><div class="ar">${esc(m==='E'&&z.arE?z.arE:z.ar)}</div>${z.tr?`<div class="tr">${esc(m==='E'&&z.trE?z.trE:z.tr)}</div>`:''}<p style="margin:6px 0 0;font-size:15px">${esc(z.m)}</p><p class="ref">${esc(z.ref)}</p></div>
+  <button class="counter" data-act="azTap">${ring(c/z.n,180)}<span>${c}<small>/ ${z.n} · tap</small></span></button>
+  <div class="row"><button class="btn ghost" data-act="azNav" data-a="-1" ${i?'':'disabled style="opacity:.4"'}>‹ Pichla</button><span class="sp"></span><button class="btn ghost" data-act="azNav" data-a="1">${i===L.length-1?'Khatam':'Agla ›'}</button></div>`}
+function azTap(){const {m,i}=runner,L=azList(m),z=L[i],d=day(),a=d.az[m];a[z.k]=Math.min(z.n,(a[z.k]||0)+1);navigator.vibrate&&navigator.vibrate(12);
+  const pr=azProg(m);if(pr.done===pr.total&&!d.az[m+'d']){d.az[m+'d']=1;save();runner.fin=1;resheet();return}
+  save();if(a[z.k]>=z.n&&i<L.length-1){resheet();setTimeout(()=>{if(runner&&runner.i===i){runner.i++;resheet()}},350)}else resheet()}
+
+// ---------- DUAS ----------
+let duaQ='',duaOpen=null;
+function suggestDuas(){const h=new Date().getHours();return D.duas.filter(x=>x.hrs.includes(h)).slice(0,2)}
+function duaBody(x){return`<div class="ar">${esc(x.ar)}</div><div class="tr">${esc(x.tr)}</div><p style="margin:6px 0 0;font-size:15px">${esc(x.m)}</p><p class="ref">${esc(x.ref)}</p>`}
+function renderDuas(){const sg=suggestDuas();let h='';
+  if(sg.length)h+=`<div class="card gold"><h2>Abhi ke liye <em>${new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</em></h2>${sg.map((x,i)=>`${i?'<hr style="border:0;border-top:1px solid var(--line);margin:16px 0">':''}<p class="big" style="margin:0">${x.e} ${esc(x.t)}</p>${duaBody(x)}`).join('')}</div>`;
+  h+=`<input id="dq" placeholder="🔎  Dua talaash karein… (khana, safar, gussa)" value="${esc(duaQ)}" style="margin-bottom:16px;background:var(--card);border-color:transparent;box-shadow:var(--sh)">`;
+  const q=duaQ.toLowerCase(),L=D.duas.filter(x=>!q||(x.t+' '+x.m+' '+x.tr).toLowerCase().includes(q));
+  h+=`<div class="card" style="padding:6px 22px"><div class="list">${L.map(x=>`<button class="li" data-act="dua" data-a="${x.k}"><span class="e">${x.e}</span><span class="t">${esc(x.t)}</span><span class="chev">${duaOpen===x.k?'⌄':'›'}</span></button>${duaOpen===x.k?`<div style="padding:0 0 16px">${duaBody(x)}</div>`:''}`).join('')||'<p class="empty">Kuch nahi mila</p>'}</div></div>`;
+  h+=NOTE;$('#v-duas').innerHTML=h;
+  const inp=$('#dq');inp.oninput=e=>{duaQ=e.target.value;const pos=e.target.selectionStart;renderDuas();const n=$('#dq');n.focus();n.setSelectionRange(pos,pos)}}
+
+// ---------- SAFAR ----------
+function renderSafar(){const p=P(),pts=points(),lv=level(pts),d=day(),ay=D.ayat[dayNo()%D.ayat.length],nk=D.neki[dayNo()%D.neki.length];
+  const hb=p.habits.length?Math.max(...p.habits.map(x=>Math.floor((Date.now()-x.start)/864e5))):null;
+  let h=`<div class="card" style="text-align:center"><div class="ring" style="width:110px;height:110px;margin:0 auto 10px;font-size:15px">${ring(lv.pct/100,110,'var(--gold)')}<div><b style="font-size:28px;display:block;line-height:1">${lv.n}</b>Level</div></div>
+   <p class="big" style="margin:0">${esc(lv.name)}</p><p class="mute" style="margin:2px 0 0">${pts} points ${lv.next?'· agla level '+lv.next:''}</p></div>
+  <div class="tiles">
+   <button class="tile" data-act="sh" data-a="ayat"><span class="e">📖</span><b>Ek Ayat, Ek Amal</b><span>${d.amal?'✓ Aaj ka amal ho gaya':esc(ay.s)+' '+ay.r}</span></button>
+   <button class="tile" data-act="sh" data-a="neki"><span class="e">🫙</span><b>Neki Jar</b><span>${(d.deeds||[]).length?'Aaj '+d.deeds.length+' nekiyan':esc(nk)}</span></button>
+   <button class="tile" data-act="sh" data-a="mu"><span class="e">🌌</span><b>Raat ka Muhasaba</b><span>${d.mu?'✓ Aaj likh liya':'3 sawal + istighfar'}</span></button>
+   <button class="tile" data-act="sh" data-a="habit"><span class="e">🌱</span><b>Buri Aadat Chhoro</b><span>${hb===null?'Tracker shuru karein':hb+' din saaf'}</span></button></div>`;
+  h+=`<div class="card"><h2>Aaj ke points <em>${dayPts(d)}</em></h2><p class="mute" style="margin:0">Namaz 10 · Sunnat 10 · Azkaar 15 · Neki 5 · Muhasaba 10 · Amal 10 · Istighfar 3/33 · Jumma 5 · Marhala +50</p></div>`;
+  h+=NOTE;$('#v-safar').innerHTML=h}
+const SH={
+ ayat:['Ek Ayat, Ek Amal',()=>{const ay=D.ayat[dayNo()%D.ayat.length],d=day();return`<div class="card"><h2>Aaj ki ayat <em>${esc(ay.s)} ${ay.r}</em></h2><div class="ar">${esc(ay.ar)}</div><p style="font-size:16px;margin:0">${esc(ay.m)}</p></div>
+   <div class="card gold"><h2>Aaj ka amal</h2><p class="big">${esc(ay.a)}</p><div style="margin-top:14px">${d.amal?'<button class="btn done" data-act="amal">✓ Amal kar liya</button>':'<button class="btn" data-act="amal">Amal kar liya ✓</button>'}</div></div>
+   <p class="mute" style="text-align:center">Kal nayi ayat aur naya amal 🌱</p>${NOTE}`}],
+ neki:['Neki Jar',()=>{const d=day(),nk=D.neki[dayNo()%D.neki.length],deeds=d.deeds||[];const days=[...Array(7)].map((_,i)=>addD(new Date(),i-6)),cnt=days.map(x=>(peek(dk(x)).deeds||[]).length),mx=Math.max(1,...cnt),tot=cnt.reduce((a,b)=>a+b,0);
+   return`<div class="card gold"><h2>Aaj ka idea 💡</h2><p class="big">${esc(nk)}</p><div style="margin-top:14px"><button class="btn" data-act="nekiIdea" ${deeds.includes(nk)?'disabled style="opacity:.6"':''}>${deeds.includes(nk)?'✓ Jar mein daal di':'Kar li — jar mein daalein'}</button></div></div>
+   <div class="card"><h2>Apni neki likhein</h2><div class="row"><input id="nkIn" placeholder="Aaj kya neki ki?" maxlength="120"><button class="btn" data-act="nekiAdd">+</button></div>
+   <p class="mute" style="margin:10px 0 0">Neki chhupa kar karna behtar hai — ye sirf aap ke phone mein hai.</p>
+   ${deeds.length?`<div class="list" style="margin-top:8px">${deeds.map((x,i)=>`<div class="li"><span class="e">🫙</span><span class="t">${esc(x)}</span><button class="mute" data-act="nekiDel" data-a="${i}">✕</button></div>`).join('')}</div>`:''}</div>
+   <div class="card"><h2>Is hafte <em>${tot} nekiyan</em></h2><div class="week">${days.map((x,i)=>`<div><i style="height:${cnt[i]/mx*60+4}px;opacity:${cnt[i]?.9:.2}"></i>${WD[x.getDay()]}</div>`).join('')}</div>
+   <p class="mute" style="margin:0">${tot?'MashaAllah! Har neki ka badla kam az kam 10 guna (Al-An\'am 6:160).':'Is hafte ki pehli neki aaj karein 🌱'}</p></div>`}],
+ mu:['Raat ka Muhasaba',()=>{const d=day(),m=d.mu||{},ist=d.ist||0;const past=Object.entries(P().days).filter(([k,v])=>v.mu&&k!==dk()).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,5);
+   return`<div class="card"><p class="mute" style="margin-top:0">"Har jaan dekhe ke us ne kal ke liye kya aage bheja." — Al-Hashr 59:18</p>
+   <label class="f">1. Aaj kya achha kiya? (shukr)</label><textarea id="mu1">${esc(m.a)}</textarea>
+   <label class="f">2. Kya ghalti hui? (tauba)</label><textarea id="mu2">${esc(m.b)}</textarea>
+   <label class="f">3. Kal kya behtar karunga? (niyyat)</label><textarea id="mu3">${esc(m.c)}</textarea>
+   <div style="margin-top:14px"><button class="btn full" data-act="muSave">${d.mu?'Update karein':'Mehfooz karein'}</button></div></div>
+   <div class="card" style="text-align:center"><h2>Istighfar <em>${ist}/100</em></h2><div class="ar c" style="font-size:24px">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div>
+   <button class="counter" data-act="ist" style="width:150px;height:150px;font-size:36px">${ring(ist/100,150)}<span>${ist}<small>tap</small></span></button><p class="ref">Nabi ﷺ din mein 100 dafa istighfar karte — Muslim 2702</p></div>
+   ${past.length?`<div class="card"><h2>Pichle muhasabay</h2>${past.map(([k,v])=>`<details style="padding:8px 0;border-bottom:1px solid var(--line)"><summary class="mute">${k}</summary><p>✅ ${esc(v.mu.a)}<br>🔁 ${esc(v.mu.b)}<br>🎯 ${esc(v.mu.c)}</p></details>`).join('')}</div>`:''}
+   <p class="note">Ye sirf aap ke phone par mehfooz hai. Allah se tauba ka darwaza hamesha khula hai 💚</p>`}],
+ habit:['Buri Aadat Chhoro',()=>{const H=P().habits,MS=[1,3,7,14,21,30,40,60,90,180,365];
+   return`<div class="card gold"><p class="ar c" style="font-size:22px;margin:0">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ مُنْكَرَاتِ الْأَخْلَاقِ وَالْأَعْمَالِ وَالْأَهْوَاءِ</p><p style="font-size:14px;margin:4px 0 0">Ae Allah! Bure akhlaaq, bure aamaal aur buri khwahishaat se teri panah. <span class="ref">— Tirmidhi 3591</span></p></div>`+
+   (H.length?H.map(x=>{const n=Math.floor((Date.now()-x.start)/864e5),nm=MS.find(v=>v>n)||n+1,pm=[...MS].reverse().find(v=>v<=n)||0;
+     return`<div class="card"><div class="row"><div class="sp"><h2 style="margin:0 0 4px">${esc(x.name)}</h2><p style="margin:0"><b style="font-size:34px">${n}</b> din saaf</p></div><div class="ring" style="width:64px;height:64px;font-size:12px">${ring((n-pm)/(nm-pm),64)}<span>${nm}d</span></div></div>
+     <p class="mute">Best: ${Math.max(x.best||0,n)} din${x.slips?' · '+x.slips+' dafa dobara shuru (koi baat nahi)':''}</p>
+     <div class="row"><button class="btn ghost sm" data-act="slip" data-a="${x.id}">Phisal gaya — dobara shuru</button><span class="sp"></span><button class="mute" data-act="hdel" data-a="${x.id}">Hatayein</button></div></div>`}).join(''):'<p class="empty">Koi tracker nahi. Ek aadat chunein jo chhorni hai — sirf aap ko nazar aayegi.</p>')+
+   `<div class="card"><h2>Naya tracker</h2><div class="row"><input id="hIn" placeholder="Masalan: gaali, gheebat, zyada phone" maxlength="40"><button class="btn" data-act="hadd">+</button></div></div>
+   <p class="note">"Allah ki rehmat se mayoos na ho" (Az-Zumar 39:53). Phisalna insaani hai — tauba kar ke phir uthna hi kamyabi hai.</p>`}],
+ settings:['Settings',()=>{const s=S.set,r=s.rem,perm=('Notification' in window)?Notification.permission:'na';
+   return`<div class="card"><h2>Auqaat-e-namaz</h2><label class="f">Shehar / naam</label><input id="sCity" value="${esc(s.city)}">
+   <div class="row"><div class="sp"><label class="f">Latitude</label><input id="sLat" inputmode="decimal" value="${s.lat}"></div><div class="sp"><label class="f">Longitude</label><input id="sLng" inputmode="decimal" value="${s.lng}"></div></div>
+   <div style="margin-top:10px"><button class="btn ghost sm" data-act="geo">📍 Meri location lein</button></div>
+   <label class="f">Hisaab ka tareeqa</label><select id="sM">${Object.entries(METHODS).map(([k,v])=>`<option value="${k}" ${k===s.method?'selected':''}>${v.n}</option>`).join('')}</select>
+   <label class="f">Asr</label><select id="sAsr"><option value="hanafi" ${s.asr==='hanafi'?'selected':''}>Hanafi (saaya 2 guna)</option><option value="shafi" ${s.asr==='shafi'?'selected':''}>Shafi/Maliki/Hanbali (saaya 1 guna)</option></select></div>
+   <div class="card"><h2>Yaad-dihani</h2><button class="chk ${r.on?'on':''}" data-act="remT"><span class="bx">${r.on?'✓':''}</span><span class="t">Azkaar ki yaad-dihani<small>${perm==='granted'?'Notification ijazat mil gayi':perm==='denied'?'Browser ne notifications block ki hain':perm==='na'?'Is browser mein notifications nahi':'Ijazat maangi jaayegi'}</small></span></button>
+   <div class="row"><div class="sp"><label class="f">Subah</label><input type="time" id="rS" value="${r.s}"></div><div class="sp"><label class="f">Shaam</label><input type="time" id="rE" value="${r.e}"></div></div>
+   <button class="chk ${r.nz?'on':''}" data-act="remN"><span class="bx">${r.nz?'✓':''}</span><span class="t">Har namaz ke waqt yaad-dihani</span></button>
+   <p class="ref">Note: bina server ke, reminders tab hi aate hain jab app/tab khula ho ya background mein ho.</p></div>
+   <div class="card"><h2>Backup</h2><p class="mute" style="margin-top:0">Saara data sirf is phone/browser mein hai. Backup file save kar lein.</p><div class="row"><button class="btn ghost sm" data-act="bk">⬇ Backup file</button><label class="btn ghost sm">⬆ Restore<input type="file" id="rf" accept=".json,application/json" hidden></label></div></div>
+   <div class="card"><h2>Profile</h2><label class="f">Naam</label><input id="pN" value="${esc(P().name)}" maxlength="24"></div>
+   <button class="btn full" data-act="sSave">Mehfooz karein</button>
+   <p class="note"><button class="mute" data-act="wipe" style="text-decoration:underline">Is profile ka data mitayein</button></p>${NOTE}`}],
+};
+
+// ---------- FAMILY ----------
+function shareCode(p){const days=[...Array(7)].map((_,i)=>nzCount(peek(dk(addD(new Date(),i-6)),p)));
+  const o={v:1,n:p.name,e:p.emo,s:nzStreak(p),ds:deenStreak(p),w:days,l:level(points(p)).n,u:dk()};return'DS1-'+btoa(unescape(encodeURIComponent(JSON.stringify(o))))}
+function parseCode(c){c=(c||'').trim();if(!c.startsWith('DS1-'))throw 0;const o=JSON.parse(decodeURIComponent(escape(atob(c.slice(4)))));if(!o.n||!Array.isArray(o.w))throw 0;return o}
+function cheer(n,c){return c===5?'MashaAllah! Aaj paanchon 🌟':c>0?'Achha safar jaari hai 🌿':'Dua aur hausla dein 🤲'}
+function renderFamily(){let h=`<div class="card"><h2>Mera ghar <em>${Object.keys(S.profiles).length} afraad</em></h2>`;
+  h+=Object.entries(S.profiles).map(([id,p])=>{const c=nzCount(peek(dk(),p));return`<div class="member"><div class="ring">${ring(c/5,48)}<span>${p.emo}</span></div><div class="sp"><b>${esc(p.name)}</b> ${id===S.active?'<span class="tag">Aap</span>':''}<br><span class="mute">${c}/5 aaj · 🔥 ${deenStreak(p)} din · Lv ${level(points(p)).n}</span><br><span class="mute">${cheer(p.name,c)}</span></div>${id===S.active?'':`<button class="btn ghost sm" data-act="sw" data-a="${id}">Kholein</button>`}</div>`}).join('');
+  h+=`<div style="margin-top:14px"><button class="btn ghost sm" data-act="addM">+ Naya fard</button></div></div>`;
+  const R=Object.entries(S.remote);
+  h+=`<div class="card"><h2>Door ke ahbaab</h2>${R.length?R.map(([k,o])=>{const c=o.w[6]||0,w=o.w.reduce((a,b)=>a+b,0);return`<div class="member"><div class="ring">${ring(w/35,48,'var(--gold)')}<span>${esc(o.e||'⭐')}</span></div><div class="sp"><b>${esc(o.n)}</b><br><span class="mute">Hafte mein ${w}/35 · 🔥 ${o.ds||0} din · ${o.u}</span><br><span class="mute">${cheer(o.n,c)}</span></div><button class="mute" data-act="rdel" data-a="${esc(k)}">✕</button></div>`}).join(''):'<p class="mute" style="margin:0">Doosre phone wale apna share code bhejein, yahan paste karein.</p>'}
+   <div class="row" style="margin-top:14px"><input id="codeIn" placeholder="DS1-… code paste karein"><button class="btn sm" data-act="imp">Add</button></div></div>`;
+  h+=`<div class="card"><h2>Mera share code</h2><p class="mute" style="margin-top:0">Sirf naam, namaz ki ginti aur streak share hoti hai — muhasaba aur aadatein kabhi nahi.</p><div class="row"><button class="btn sm" data-act="share">📤 Share code</button><button class="btn ghost sm" data-act="hausla">🤲 Hausla bhejein</button></div></div>`;
+  h+=`<p class="note">Maqsad muqabla nahi, ek doosre ka hausla barhana hai.<br>"Neki aur taqwa mein ek doosre ki madad karo" — Al-Maidah 5:2</p>`;
+  $('#v-family').innerHTML=h}
+
+// ---------- render / nav ----------
+let tab='home';
+function render(){const p=P(),hr=new Date().getHours();
+  let hij='';try{hij=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{day:'numeric',month:'short',year:'numeric'}).format(new Date())}catch(e){}
+  $('#hDate').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short'})+(hij?' · '+hij:'');
+  $('#hName').textContent=(p.name&&p.name!=='Main'?p.name:'Assalam-o-Alaikum')+(p.name&&p.name!=='Main'?' 👋':'');
+  $('#hAv').textContent=p.emo;
+  ({home:renderHome,ibadat:renderIbadat,duas:renderDuas,safar:renderSafar,family:renderFamily})[tab]();
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.a===tab))}
+function go(t){tab=t;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+t));window.scrollTo(0,0);render()}
+
+function download(name,text){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+async function shareText(t){try{if(navigator.share){await navigator.share({text:t});return}}catch(e){if(e&&e.name==='AbortError')return}
+  try{await navigator.clipboard.writeText(t);toast('Copy ho gaya ✓')}catch(e){modal(`<p class="mute">Copy kar lein:</p><textarea style="min-height:120px">${esc(t)}</textarea><button class="btn full" data-act="mclose" style="margin-top:12px">Theek</button>`)}}
+
+const ACT={
+ go:a=>go(a), close:closeSheet, mclose,
+ settings:()=>sheet('Settings',SH.settings[1]),
+ sh:a=>sheet(SH[a][0],SH[a][1]),
+ nz:(a,el)=>{const d=day();d.n[a]=d.n[a]?0:1;save();progCheck();render();if(d.n[a]){toast(nzCount(d)===5?'MashaAllah! Paanchon mukammal 🌟':'Allah qabool farmaye 🤲');const b=document.querySelector(`[data-act="nz"][data-a="${a}"] .c`);b&&b.classList.add('pop')}},
+ su:()=>{const d=day();d.su=d.su?0:1;save();render();if(d.su)toast('Sunnat zinda ki — MashaAllah 🌿')},
+ az:a=>openAz(a), azTap,
+ azNav:a=>{const L=azList(runner.m);const n=runner.i+(+a);if(n>=L.length){closeSheet();return}runner.i=Math.max(0,n);resheet();$('#sheet').scrollTop=0},
+ jm:a=>{if(!isFri())return;const d=day();d.jm=d.jm||{};d.jm[a]=d.jm[a]?0:1;save();render()},
+ dc:(a,el,ev)=>{ev.stopPropagation();if(!isFri())return;const d=day();d.jm=d.jm||{};d.jm.dc=(d.jm.dc||0)+1;if(d.jm.dc>=100)d.jm.durood=1;save();render();navigator.vibrate&&navigator.vibrate(10)},
+ prog:()=>{P().prog={s:0,since:Date.now()};save();render();toast('Bismillah! Pehla qadam shuru 🎯')},
+ progoff:()=>{if(confirm('Program band karein? (Namaz ka record mehfooz rahega)')){P().prog=null;save();render()}},
+ progreset:()=>{P().prog={s:0,since:Date.now()};save();render()},
+ sm:()=>{const d=day();d.sm=d.sm?0:1;save();progCheck();render()},
+ dua:a=>{duaOpen=duaOpen===a?null:a;renderDuas()},
+ amal:()=>{const d=day();d.amal=d.amal?0:1;save();resheet();if(d.amal)toast('MashaAllah! Ilm par amal 🌱')},
+ nekiIdea:()=>{const d=day(),nk=D.neki[dayNo()%D.neki.length];d.deeds=d.deeds||[];if(!d.deeds.includes(nk))d.deeds.push(nk);save();resheet();toast('Jar mein daal di 🫙')},
+ nekiAdd:()=>{const v=$('#nkIn').value.trim();if(!v)return;const d=day();(d.deeds=d.deeds||[]).push(v);save();resheet();toast('Allah qabool farmaye 🫙')},
+ nekiDel:a=>{const d=day();d.deeds.splice(+a,1);save();resheet()},
+ muSave:()=>{const d=day();d.mu={a:$('#mu1').value.trim(),b:$('#mu2').value.trim(),c:$('#mu3').value.trim()};if(!d.mu.a&&!d.mu.b&&!d.mu.c)delete d.mu;save();resheet();toast('Mehfooz ✓ Shab bakhair 🌙')},
+ ist:()=>{const d=day();d.ist=(d.ist||0)+1;save();navigator.vibrate&&navigator.vibrate(10);if(d.ist===100)toast('100 mukammal — Allah maaf farmaye 💚');const keep={a:$('#mu1').value,b:$('#mu2').value,c:$('#mu3').value};resheet();$('#mu1').value=keep.a;$('#mu2').value=keep.b;$('#mu3').value=keep.c},
+ hadd:()=>{const v=$('#hIn').value.trim();if(!v)return;P().habits.push({id:uid(),name:v,start:Date.now(),best:0,slips:0});save();resheet();toast('Bismillah! Allah madad kare 🌱')},
+ slip:a=>{const x=P().habits.find(h=>h.id===a);if(!x)return;modal(`<p class="big">Koi baat nahi 💚</p><p class="mute">Tauba karein: <b>Astaghfirullah</b>. Allah tauba karne walon se mohabbat karta hai (Al-Baqarah 2:222). Phir se shuru karein?</p><div class="row"><button class="btn ghost" data-act="mclose">Nahi</button><span class="sp"></span><button class="btn" data-act="slipOk" data-a="${a}">Haan, dobara shuru</button></div>`)},
+ slipOk:a=>{const x=P().habits.find(h=>h.id===a);const n=Math.floor((Date.now()-x.start)/864e5);x.best=Math.max(x.best||0,n);x.start=Date.now();x.slips=(x.slips||0)+1;save();mclose();resheet()},
+ hdel:a=>{if(confirm('Ye tracker hatayein?')){P().habits=P().habits.filter(h=>h.id!==a);save();resheet()}},
+ sw:a=>{S.active=a;save();render();toast(P().emo+' '+P().name+' ka safar')},
+ addM:()=>modal(`<p class="big">Naya fard</p><label class="f">Naam</label><input id="mN" maxlength="24" placeholder="Ammi, Abbu, Ahmed…"><label class="f">Nishaan</label><div class="row" style="flex-wrap:wrap">${EMO.map((e,i)=>`<button class="av" data-act="pickE" data-a="${e}" style="${i?'':'outline:2px solid var(--pri)'}">${e}</button>`).join('')}</div><div class="row" style="margin-top:18px"><button class="btn ghost" data-act="mclose">Cancel</button><span class="sp"></span><button class="btn" data-act="addMOk">Shamil karein</button></div>`),
+ pickE:(a,el)=>{document.querySelectorAll('[data-act="pickE"]').forEach(b=>b.style.outline='');el.style.outline='2px solid var(--pri)';el.parentNode.dataset.sel=a},
+ addMOk:()=>{const n=$('#mN').value.trim();if(!n){$('#mN').focus();return}const e=(document.querySelector('[data-act="pickE"]').parentNode.dataset.sel)||EMO[0];const id=uid();S.profiles[id]=fresh(n);S.profiles[id].emo=e;save();mclose();render();toast(n+' shamil ✓')},
+ imp:()=>{try{const o=parseCode($('#codeIn').value);S.remote[o.n.toLowerCase()]=o;save();render();toast(o.n+' add ho gaye ✓')}catch(e){toast('Code sahi nahi')}},
+ rdel:a=>{delete S.remote[a];save();render()},
+ share:()=>shareText('Mera Deen Safar 🌙 — mera share code app mein "Ghar" tab par paste karein:\n'+shareCode(P())),
+ hausla:()=>shareText('Assalam-o-Alaikum! 🌙 Aaj ki namaz ka waqt na bhooliye ga. Allah hum sab ko istiqamat de. 🤲\n— '+P().name+' (Mera Deen Safar)'),
+ geo:()=>{if(!navigator.geolocation){toast('Location nahi mil saki');return}navigator.geolocation.getCurrentPosition(p=>{$('#sLat').value=p.coords.latitude.toFixed(4);$('#sLng').value=p.coords.longitude.toFixed(4);$('#sCity').value='Meri location';toast('Location mil gayi ✓')},()=>toast('Location ki ijazat nahi mili'),{timeout:10000})},
+ remT:async(a,el)=>{const r=S.set.rem;if(!r.on&&'Notification' in window&&Notification.permission==='default'){try{await Notification.requestPermission()}catch(e){}}r.on=!r.on;save();resheet()},
+ remN:async()=>{const r=S.set.rem;if(!r.nz&&'Notification' in window&&Notification.permission==='default'){try{await Notification.requestPermission()}catch(e){}}r.nz=!r.nz;save();resheet()},
+ sSave:()=>{const s=S.set,lat=parseFloat($('#sLat').value),lng=parseFloat($('#sLng').value);if(!(Math.abs(lat)<=90&&Math.abs(lng)<=180)){toast('Latitude/longitude sahi nahi');return}
+   Object.assign(s,{lat,lng,city:$('#sCity').value.trim(),method:$('#sM').value,asr:$('#sAsr').value});s.rem.s=$('#rS').value||'07:00';s.rem.e=$('#rE').value||'17:30';const n=$('#pN').value.trim();if(n)P().name=n;save();closeSheet();toast('Mehfooz ✓')},
+ bk:()=>download('deen-safar-backup-'+dk()+'.json',JSON.stringify(S)),
+ wipe:()=>{if(confirm('Is profile ka saara record mit jaayega. Pakka?')){const p=P();p.days={};p.habits=[];p.prog=null;p.bonus=0;save();closeSheet();toast('Mita diya')}},
+ onbOk:()=>{const n=$('#oN').value.trim();P().name=n||'Main';S.onb=true;save();mclose();render()},
+};
+document.addEventListener('click',ev=>{const el=ev.target.closest('[data-act]');if(!el||el.disabled)return;const f=ACT[el.dataset.act];if(f){f(el.dataset.a,el,ev)}});
+document.addEventListener('keydown',ev=>{if(ev.key!=='Enter')return;const id=ev.target.id;if(id==='nkIn')ACT.nekiAdd();else if(id==='hIn')ACT.hadd();else if(id==='codeIn')ACT.imp();else if(id==='oN')ACT.onbOk()});
+document.addEventListener('change',ev=>{if(ev.target.id!=='rf')return;const f=ev.target.files[0];if(!f)return;f.text().then(t=>{const o=JSON.parse(t);if(!o.profiles||!o.active)throw 0;if(!confirm('Backup se saara data badal diya jaayega. Jaari rakhein?'))return;localStorage.setItem(KEY,JSON.stringify(o));load();closeSheet();toast('Restore ho gaya ✓')}).catch(()=>toast('File sahi nahi'))});
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal'&&S.onb)mclose()});
+
+// ---------- reminders ----------
+async function notify(title,body){try{if(!('Notification' in window)||Notification.permission!=='granted')return;const reg=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();if(reg&&reg.showNotification)reg.showNotification(title,{body,icon:'icon-192.png',tag:title});else new Notification(title,{body,icon:'icon-192.png'})}catch(e){}}
+function tick(){const r=S.set.rem,now=new Date(),k=dk(),hm=pad(now.getHours())+':'+pad(now.getMinutes());let F={};try{F=JSON.parse(localStorage.getItem(FKEY))||{}}catch(e){}
+  if(F.d!==k)F={d:k};const fire=(id,t,b)=>{if(F[id])return;F[id]=1;localStorage.setItem(FKEY,JSON.stringify(F));notify(t,b)};
+  const d=day();if(r.on){if(hm>=r.s&&hm<'12:00'&&!(d.az&&d.az.Sd))fire('S','🌅 Subah ke azkaar','Din ki shuruat Allah ke zikr se — 10 minute.');if(hm>=r.e&&!(d.az&&d.az.Ed))fire('E','🌆 Shaam ke azkaar','Shaam ka hisaar padh lein.')}
+  if(r.nz){const t=prayerTimes(now);NZ.forEach(([kk,n])=>{if(t[kk]&&now>=t[kk]&&now-t[kk]<15*6e4&&!d.n[kk])fire('n'+kk,'🕌 '+n+' ka waqt','Hayya alas-salah — namaz ki taraf aao.')})}
+  if(tab==='home'&&!$('#sheet').classList.contains('on')&&!$('#modal').classList.contains('on'))renderHome()}
+
+// ---------- boot ----------
+load();render();
+if(!S.onb)modal(`<div style="text-align:center"><div style="font-size:54px">🌙</div><p class="big" style="font-size:22px">Mera Deen Safar</p><p class="mute">Roz ke chhote amal — namaz, sunnat, zikr aur neki — jo deen ko zindagi ka hissa bana dein.</p></div><label class="f">Aap ka naam</label><input id="oN" maxlength="24" placeholder="Naam likhein"><button class="btn full" data-act="onbOk" style="margin-top:16px">Bismillah, shuru karein</button><p class="note" style="margin-bottom:0">Saara data sirf aap ke phone mein rehta hai.</p>`);
+setInterval(tick,30000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){render();resheet()}});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
